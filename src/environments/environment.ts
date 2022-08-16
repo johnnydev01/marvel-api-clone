@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PARAMS: ``,
+  BASE_URL: 'https://gateway.marvel.com:443/v1/public',
 };
 
 /*
