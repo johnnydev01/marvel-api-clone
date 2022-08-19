@@ -26,7 +26,7 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   display: flex;
   margin: 0 auto;
 }
-.desktop-link-weapper{
+.desktop-link-wrapper {
   text-transform: uppercase;
   font-weight: 800;
   padding: 0 18px;
@@ -34,7 +34,17 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   cursor: pointer;
   list-style: none;
 }
-
+.desktop-link-wrapper:hover .desktop-flyout-container{
+    visibility: visible;
+    opacity: 1;
+}
+.desktop-flyout-container:hover{
+  visibility: visible;
+  opacity: 1;
+}
+.pr {
+  position: relative;
+}
 .desktop-nav-link {
   display: flex;
   font: $font-condedensed;
@@ -49,12 +59,62 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   text-decoration: none;
 }
 
-.desktop-nav-link:hover{
+.desktop-nav-link:hover {
   border-bottom: 2px solid #E62429;
 }
-
 .h-40 {
   height: 40px !important;
+}
+
+.desktop-flyout-container {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  background-color: #fff;
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%;
+  -ms-grid-rows: 100%;
+  grid-template-rows: 100%;
+  top: 100%;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  height: auto;
+  -webkit-box-shadow: 0 2px 30px 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 2px 30px 0 rgb(0 0 0 / 20%);
+  -webkit-transition-property: opacity,visibility,height;
+  transition-property: opacity,visibility,height;
+  -webkit-transition-duration: .25s;
+  transition-duration: .25s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+.flyout-secondary-links {
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.flyout-content {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1020px;
+  padding: 30px 15px 0;
 }
 .menu-icon-container {
   display: flex;

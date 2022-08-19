@@ -17,11 +17,11 @@ export class HeaderComponent {
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
   get onscroll(): boolean {
@@ -31,5 +31,18 @@ export class HeaderComponent {
     return false;
   }
 
+  mouseEnter(id: string) {
+      const div = document.getElementById(id);
+      if(div !== null) {
+        div.onmouseenter = (event) => {
+          console.log(event)
+      }
+    }
+    document.getElementById(id)?.classList.add('active');
+  }
+
+  mouseLeave(id: string) {
+    document.getElementById(id)?.classList.remove('active');
+  }
 
 }

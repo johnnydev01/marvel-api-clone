@@ -23,11 +23,26 @@
         </div>
       </div>
     </mat-toolbar-row>
-    <mat-toolbar-row class="h-40 d-md-flex d-none">
+    <mat-toolbar-row class="h-40 pr d-md-flex d-none">
       <div class="toolbar-container-lower">
         <ul class="desktop-nav-container">
-          <li *ngFor="let nav of fillerNav" class="desktop-link-weapper">
-            <a href="" class="desktop-nav-link">{{nav}}</a>
+          <li
+            *ngFor="let nav of fillerNav; let i = index"
+            class="desktop-link-wrapper"
+
+          >
+            <a href=""
+              class="desktop-nav-link"
+            >
+              {{nav}}
+            </a>
+            <div
+              class="desktop-flyout-container"
+              id="desktop-flyout-{{i}}"
+            >
+              <ul class="flyout-sencondary-links"></ul>
+              <div class="flyout-content"></div>
+            </div>
           </li>
         </ul>
       </div>
