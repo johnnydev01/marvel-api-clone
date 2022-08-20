@@ -34,14 +34,6 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   cursor: pointer;
   list-style: none;
 }
-.desktop-link-wrapper:hover .desktop-flyout-container{
-    visibility: visible;
-    opacity: 1;
-}
-.desktop-flyout-container:hover{
-  visibility: visible;
-  opacity: 1;
-}
 .pr {
   position: relative;
 }
@@ -277,6 +269,10 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   border-bottom: 1px solid #393939 !important;
 }
 
+.mat-drawer-container {
+  margin-top: 0 !important;
+}
+
 @include media-breakpoint-up(md){
   .toolbar-container-upper {
     max-width: 1200px;
@@ -296,7 +292,5 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
     padding-right: 15px;
     border-right: 1px solid #393939;
   }
-
-
 
 }

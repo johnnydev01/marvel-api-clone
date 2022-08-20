@@ -1,0 +1,169 @@
+$imageLg1x: url(https://terrigen-cdn-dev.marvel.com/content/prod/1x/characters_art_mas_dsk_01.jpg);
+$imageSm1x: url(https://terrigen-cdn-dev.marvel.com/content/prod/1x/characters_art_mas_mob_01.jpg);
+$font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,sans-serif;
+
+.section-color-dark {
+  background-color: #151515;
+}
+
+.masterhead {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+.masterhead.mini-background {
+  height: auto;
+  background-color: transparent;
+}
+
+.masterhead-wrapper {
+  position: relative;
+  -webkit-clip-path: polygon(0 0,0 99%,100% 95%,100% 0);
+  clip-path: polygon(0 0,0 99%,100% 95%,100% 0);
+  -webkit-transition: -webkit-clip-path .25s ease-in;
+  transition: -webkit-clip-path .25s ease-in;
+  transition: clip-path .25s ease-in;
+  transition: clip-path .25s ease-in,-webkit-clip-path .25s ease-in;
+}
+
+.masterhead-background-wrapper {
+  -webkit-clip-path: polygon(0 0,0 98%,100% 92%,100% 0);
+  clip-path: polygon(0 0,0 98%,100% 92%,100% 0);
+}
+
+
+.masterhead.mini-background .masterhead-background {
+  min-height: unset;
+  max-height: unset;
+  height: 340px;
+}
+
+.masterhead-background {
+  background-color: #151515;
+  height: 200px;
+  left: 0;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+.masterhead-background .built-background {
+  width: 100%;
+  height: 100%;
+  background-position: top;
+}
+
+.built-background-multi {
+  background-image: $imageSm1x;
+}
+
+.built-background {
+  $imageLg1x: "";
+  $imageSm1x: "";
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.masterhead-background .built-background::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.65)),to(rgba(0,0,0,.2)));
+  background: linear-gradient(90deg,rgba(0,0,0,.65) 0,rgba(0,0,0,.2));
+  -webkit-filter: progid:dximagetransform.microsoft.gradient(startColorstr="#a6000000",endColorstr="#00000000",GradientType=1);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr="#a6000000",endColorstr="#00000000",GradientType=1);
+}
+
+.masterhead.mini-background .masterhead-hero {
+  position: absolute;
+  top: 0;
+  height: 340px;
+  background-color: transparent;
+}
+
+.masterhead-hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  position: relative;
+  width: 100%;
+  z-index: 50;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.masterhead.mini-background .masterhead-main {
+  top: 0;
+  height: 100%;
+  display: flex;
+  text-align: center;
+}
+
+.masterhead-main {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+  padding: 25px 0;
+}
+
+.masthead-hero, .masthead-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  position: relative;
+  width: 100%;
+  z-index: 50;
+}
+
+.masthead.mini-background .masthead-container {
+  padding: 0 10px 10px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.masterhead-container {
+  width: 100%;
+  padding: 0 30px 20px;
+  margin: 0 auto;
+  white-space: normal;
+  z-index: 10;
+  zoom: 1;
+}
+
+.masterhead-headline {
+  padding: 0 0 15px;
+  margin: 0;
+  display: block;
+  color: #fff;
+  font: $font-condedensed;
+  line-height: 1;
+  text-transform: uppercase;
+  -webkit-transition: font-size .2s ease;
+  transition: font-size .2s ease;
+}
+
+.masterhead.mini-background  .masterhead-copy {
+  padding: 0;
+  margin: 5px 0 0;
+  font: 400 16px/1.3 Roboto,Trebuchet MS,Helvetica,Arial,sans-serif;
+  color: #FFF;
+  font-size: 16px;
+  letter-spacing: .5px;
+}

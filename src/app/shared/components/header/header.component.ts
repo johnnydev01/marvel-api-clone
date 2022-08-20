@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 
 @Component({
@@ -10,7 +10,17 @@ export class HeaderComponent {
 
   mobileQuery: MediaQueryList;
 
-  fillerNav = ['videos', 'characters', 'comics', 'movies', 'tv shows', 'games', 'news', 'culture & lifestyle', 'books'];
+  fillerNav = [
+    {name: 'videos', link:"videos"},
+    {name: 'characters', link: 'characters'},
+    {name: 'comics', link: 'comics'},
+    {name: 'movies', link: 'movies'},
+    {name: 'tv shows', link: 'shows'},
+    {name: 'games', link: 'games'},
+    {name: 'news', link: 'news'},
+    {name: 'culture & lifestyle', link:'culture'},
+    {name:'books', link: 'books'}
+  ];
 
   private _mobileQueryListener: () => void;
 
@@ -32,12 +42,6 @@ export class HeaderComponent {
   }
 
   mouseEnter(id: string) {
-      const div = document.getElementById(id);
-      if(div !== null) {
-        div.onmouseenter = (event) => {
-          console.log(event)
-      }
-    }
     document.getElementById(id)?.classList.add('active');
   }
 

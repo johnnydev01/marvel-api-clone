@@ -29,12 +29,11 @@
           <li
             *ngFor="let nav of fillerNav; let i = index"
             class="desktop-link-wrapper"
-
           >
-            <a href=""
+            <a routerLink="/{{nav.link}}"
               class="desktop-nav-link"
             >
-              {{nav}}
+              {{nav.name}}
             </a>
             <div
               class="desktop-flyout-container"
@@ -57,7 +56,7 @@
       </button>
       <mat-nav-list>
         <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">
-          {{nav}}
+          {{nav.name}}
           <span class="arrow-right-container">
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="16" viewBox="0 0 11 16"><path fill="none" d="M-.851-3L9.232 8-2.75 21.071"></path></svg>
           </span>
@@ -66,6 +65,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
