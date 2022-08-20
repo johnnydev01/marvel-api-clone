@@ -167,3 +167,51 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   font-size: 16px;
   letter-spacing: .5px;
 }
+
+@media screen and(min-width: 839px) {
+
+  .masterhead.mini-background .masterhead-background {
+    position: relative;
+    height: 400px
+  }
+  .masterhead.mini-background {
+    min-height: 400px;
+  }
+
+  .masterhead.masthead.mini-background .masterhead-wrapper {
+    min-height: unset;
+    max-height: unset;
+    height: 100%;
+    clip-path: polygon(0 0,0 98%,100% 92%,100% 0);
+  }
+
+  .built-background-multi {
+    background-image: $imageLg1x !important;
+  }
+
+  .masterhead.mini-background .masterhead-main {
+    padding: 20px 0;
+  }
+  .masterhead .masterhead-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    -webkit-box-ordinal-group: inherit;
+    -ms-flex-order: inherit;
+    order: inherit;
+  }
+
+  .masterhead.mini-background .masterhead-copy {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media screen and(min-width: 961px) {
+  .masterhead .masterhead-background .built-background {
+    background-position: 50%;
+  }
+  .masterhead-headline {
+    font-size: 44px;
+  }
+}
