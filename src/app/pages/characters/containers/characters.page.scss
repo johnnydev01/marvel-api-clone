@@ -6,18 +6,18 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   background-color: #151515;
 }
 
-.masterhead {
+.masthead {
   position: relative;
   width: 100%;
   margin: 0;
 }
 
-.masterhead.mini-background {
+.masthead.mini-background {
   height: auto;
   background-color: transparent;
 }
 
-.masterhead-wrapper {
+.masthead-wrapper {
   position: relative;
   -webkit-clip-path: polygon(0 0,0 99%,100% 95%,100% 0);
   clip-path: polygon(0 0,0 99%,100% 95%,100% 0);
@@ -27,19 +27,19 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   transition: clip-path .25s ease-in,-webkit-clip-path .25s ease-in;
 }
 
-.masterhead-background-wrapper {
+.masthead-background-wrapper {
   -webkit-clip-path: polygon(0 0,0 98%,100% 92%,100% 0);
   clip-path: polygon(0 0,0 98%,100% 92%,100% 0);
 }
 
 
-.masterhead.mini-background .masterhead-background {
+.masthead.mini-background .masthead-background {
   min-height: unset;
   max-height: unset;
   height: 340px;
 }
 
-.masterhead-background {
+.masthead-background {
   background-color: #151515;
   height: 200px;
   left: 0;
@@ -51,7 +51,7 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   width: 100%;
 }
 
-.masterhead-background .built-background {
+.masthead-background .built-background {
   width: 100%;
   height: 100%;
   background-position: top;
@@ -73,7 +73,7 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   backface-visibility: hidden;
 }
 
-.masterhead-background .built-background::after {
+.masthead-background .built-background::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -84,14 +84,14 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   filter: progid:dximagetransform.microsoft.gradient(startColorstr="#a6000000",endColorstr="#00000000",GradientType=1);
 }
 
-.masterhead.mini-background .masterhead-hero {
+.masthead.mini-background .masthead-hero {
   position: absolute;
   top: 0;
   height: 340px;
   background-color: transparent;
 }
 
-.masterhead-hero {
+.masthead-hero {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,14 +105,14 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   flex-direction: column;
 }
 
-.masterhead.mini-background .masterhead-main {
+.masthead.mini-background .masthead-main {
   top: 0;
   height: 100%;
   display: flex;
   text-align: center;
 }
 
-.masterhead-main {
+.masthead-main {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -138,7 +138,7 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   overflow: visible;
 }
 
-.masterhead-container {
+.masthead-container {
   width: 100%;
   padding: 0 30px 20px;
   margin: 0 auto;
@@ -147,7 +147,7 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   zoom: 1;
 }
 
-.masterhead-headline {
+.masthead-headline {
   padding: 0 0 15px;
   margin: 0;
   display: block;
@@ -159,7 +159,7 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   transition: font-size .2s ease;
 }
 
-.masterhead.mini-background  .masterhead-copy {
+.masthead.mini-background  .masthead-copy {
   padding: 0;
   margin: 5px 0 0;
   font: 400 16px/1.3 Roboto,Trebuchet MS,Helvetica,Arial,sans-serif;
@@ -170,15 +170,15 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
 
 @media screen and(min-width: 839px) {
 
-  .masterhead.mini-background .masterhead-background {
+  .masthead.mini-background .masthead-background {
     position: relative;
     height: 400px
   }
-  .masterhead.mini-background {
+  .masthead.mini-background {
     min-height: 400px;
   }
 
-  .masterhead.masthead.mini-background .masterhead-wrapper {
+  .masthead.masthead.mini-background .masthead-wrapper {
     min-height: unset;
     max-height: unset;
     height: 100%;
@@ -189,10 +189,10 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
     background-image: $imageLg1x !important;
   }
 
-  .masterhead.mini-background .masterhead-main {
+  .masthead.mini-background .masthead-main {
     padding: 20px 0;
   }
-  .masterhead .masterhead-main {
+  .masthead .masthead-main {
     max-width: 1200px;
     margin: 0 auto;
     height: 100%;
@@ -201,17 +201,17 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
     order: inherit;
   }
 
-  .masterhead.mini-background .masterhead-copy {
+  .masthead.mini-background .masthead-copy {
     display: block;
     text-align: center;
   }
 }
 
 @media screen and(min-width: 961px) {
-  .masterhead .masterhead-background .built-background {
+  .masthead .masthead-background .built-background {
     background-position: 50%;
   }
-  .masterhead-headline {
+  .masthead-headline {
     font-size: 44px;
   }
 }
