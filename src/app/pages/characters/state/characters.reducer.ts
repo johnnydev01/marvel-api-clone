@@ -4,15 +4,21 @@ import { Character } from './../../../shared/models/character.model';
 import * as fromCharactersActions from './characters.actions';
 
 export interface CharactersState {
-  list: Character[];
+  entities: Character[];
+  offset: number;
+  limit: number;
+  nameStartsWith?: string;
   loading: boolean;
   error: boolean;
 }
 
 
 export const charactersInitialSate: CharactersState = {
-  list: [],
+  entities: [],
   loading: false,
+  offset: 0,
+  limit: 36,
+  nameStartsWith: '',
   error: false
 }
 
@@ -20,14 +26,24 @@ const reducer = createReducer(
   charactersInitialSate,
   on(fromCharactersActions.loadCharacter, (state) => ({
     ...state,
-    list: [],
+    entities: [],
     loading: true,
     error: false,
+    offset: 0,
+    limit: 36,
+    nameStartsWith: '',
   })),
-  on(fromCharactersActions.loadCharactersSuccess, (state, { list }) => ({
+  on(fromCharactersActions.loadCharacterByParams, (state, {offset, limit, nameStartsWith}) => ({
     ...state,
-    list,
-    loading: false
+    offset,
+    limit,
+    nameStartsWith,
+    loading: false,
+  })),
+  on(fromCharactersActions.loadCharactersSuccess, (state, { entities }) => ({
+    ...state,
+    entities,
+    loading: false,
   })),
   on(fromCharactersActions.loadCharactersFailed, state => ({
     ...state,

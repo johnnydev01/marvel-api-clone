@@ -167,6 +167,249 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   font-size: 16px;
   letter-spacing: .5px;
 }
+.mr-8 {
+  margin-right: 8px;
+}
+#searchCharacters {
+  font: 800 26px/1 RobotoCondensed,Trebuchet MS,Helvetica,Arial,sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#searchCharacters::placeholder {
+  font: 800 26px/1 RobotoCondensed,Trebuchet MS,Helvetica,Arial,sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.full-content {
+  position: relative;
+  display: block;
+  padding: 10px 20px 0;
+  margin: 0 auto;
+  max-width: 1240px;
+  -webkit-transition: opacity .6s;
+  transition: opacity .6s;
+}
+
+.full-content .content-grid {
+  padding: 0;
+}
+
+.content-grid {
+  max-width: 1240px;
+  padding: 10px 20px 0;
+  margin: 0 auto
+}
+
+.content-grid .grid-base {
+  display: -ms-grid;
+  display: grid;
+  -webkit-transition: max-height 1s ease-out;
+  transition: max-height 1s ease-out;
+  overflow: hidden;
+  grid-column-gap: 10px;
+}
+
+.content-grid .mvl-card {
+  margin: 6px 0 4px;
+}
+
+.mvl-card-explore {
+  box-sizing: border-box;
+  position: relative;
+  color: #fff;
+  max-width: 100%;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.mvl-card-explore::after {
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: #fff;
+  border-style: solid;
+  border-top-color: transparent;
+  border-width: 12px 12px 0 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: auto;
+  z-index: 40;
+}
+
+.mvl-card-explore .card-thumb-frame {
+  background: #e62429;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.mvl-card-explore .card-thumb-frame .img-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 170px;
+}
+
+figure.img-wrapper {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mvl-card-explore .card-thumb-frame .img-wrapper::after {
+  height: 4px;
+  content: "";
+  background-color: #e62429;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.mvl-card-explore .card-thumb-frame figure img {
+  transform: scaleX(1);
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+  overflow: hidden;
+  -o-object-position: top center;
+  object-position: top center;
+}
+
+.mvl-card img, .mvl-card picture {
+  display: block;
+  margin: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center center;
+  object-position: center center;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mvl-card-explore .card-thumb-frame figure img::after {
+  position: absolute;
+  content: "";
+  display: block;
+  background-color: #151515;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content-grid .mvl-card-explore .card-body {
+  padding: 16px 10px 17px;
+}
+
+.mvl-card-explore .card-body.is-sliding {
+  background: #151515;
+  color: #e62429;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.mvl-card .card-body {
+  overflow: hidden;
+  position: relative;
+  line-height: 1;
+}
+
+.mvl-card-explore .card-body {
+  background: none;
+  border: none;
+  color: inherit;
+  height: 145px;
+  padding: 16px 24px 17px 16px;
+  position: relative;
+  vertical-align: middle;
+  z-index: 30;
+}
+
+.mvl-card-explore .card-body.is-sliding::before {
+  background: #e62429;
+  bottom: 100%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  -webkit-transition-timing-function: cubic-bezier(.75,0,.125,1);
+  transition-timing-function: cubic-bezier(.75,0,.125,1);
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s,-webkit-transform .3s;
+  width: 100%;
+  z-index: -1;
+}
+
+.mvl-card-explore .card-body-headline {
+  color: #FFF;
+}
+
+.mvl-card-explore .card-body-headline {
+  font: 400 16px/1.1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.mvl-card-explore .card-body .card-footer {
+  bottom: 17px;
+  position: absolute;
+  padding-right: 10px;
+  text-align: left;
+}
+
+.mvl-card-explore .card-body .card-footer-secondary-text {
+  font: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,sans-serif;
+  color: #bbb;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  -webkit-transform: translate3d(0) scale(1);
+  transform: translate3d(0) scale(1);
+  -webkit-transition: all .17s ease-in-out;
+  transition: all .17s ease-in-out;
+}
+
+.mvl-card-explore .card-body .card-footer-micro-description {
+  font: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,sans-serif;
+  color: #767676;
+  text-transform: uppercase;
+}
+
+.mvl-card-explore .card-body .card-footer-micro-description {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  -webkit-transform: translate3d(0) scale(1);
+  transform: translate3d(0) scale(1);
+  -webkit-transition: all .17s ease-in-out;
+  transition: all .17s ease-in-out;
+}
+
+.mvl-card-explore .card-body::after {
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: #fff;
+  border-style: solid;
+  border-top-color: transparent;
+  border-width: 12px 12px 0 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: auto;
+  z-index: 40;
+}
+
+.mvl-card-explore .explore-link:focus figure img,
+.mvl-card-explore:hover figure img {
+  transform: scale3d(1.05,1.05,1);
+}
+
+.mvl-card-explore .explore-link:focus
+.card-body::before, .mvl-card-explore:hover
+.card-body::before {
+  -webkit-transform: translate3d(0,100%,0);
+  transform: translate3d(0,100%,0);
+}
 
 @media screen and(min-width: 839px) {
 
@@ -205,6 +448,13 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
     display: block;
     text-align: center;
   }
+
+  .content-grid .grid-base.grid-6 {
+    grid-template-columns: repeat(auto-fill,minmax(15.82%,1fr)) !important;
+  }
+  .content-grid .mvl-card-explore .card-body {
+    padding: 16px 24px 17px 20px;
+  }
 }
 
 @media screen and(min-width: 961px) {
@@ -213,5 +463,19 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   }
   .masthead-headline {
     font-size: 44px;
+  }
+}
+
+@media screen and(min-width: 375px) {
+  .content-grid .grid-base.grid-3,
+  .content-grid .grid-base.grid-4,
+  .content-grid .grid-base.grid-6 {
+    grid-template-columns: repeat(auto-fill,minmax(31.66%,1fr));
+  }
+}
+
+@media screen and(min-width: 601px) {
+  .mvl-card-explore .card-thumb-frame .img-wrapper {
+    height: 210px;
   }
 }

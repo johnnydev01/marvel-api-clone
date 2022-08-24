@@ -18,7 +18,56 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
+<div class="full-content">
+  <form class="row">
+    <mat-form-field class="col-md-6 col-sm-6" floatLabel="never">
+      <mat-icon matPrefix class="mr-8">search</mat-icon>
+      <input
+        class="w-100"
+        type="search"
+        id="searchCharacters"
+        matInput
+        [formControl]="searchControl"
+        [matAutocomplete]="auto"
+        placeholder="Search"
+      >
+
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{option}}
+        </mat-option>
+
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <div class="content-grid">
+    <div class="grid-base grid-6">
+      <div class="mvl-card mvl-card-explore" *ngFor="let character of characters$ | async" >
+        <a href="" class="explore-link">
+          <div class="card-thumb-frame">
+            <figure class="img-wrapper">
+              <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="" class="card-thumb-frame-thumbnail img-blur">
+            </figure>
+          </div>
+          <div class="card-body is-sliding">
+            <p class="card-body-headline">{{character.name}}</p>
+            <div class="card-footer">
+              <p class="card-footer-secondary-text">{{character.modified | date: 'dd/MM/yyyy'}}</p>
+              <p class="card-footer-micro-description"></p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="getCharactersByPage($event)"
+                 aria-label="Select page">
+  </mat-paginator>
+</div>
+
