@@ -1,12 +1,12 @@
 {
-  "/angular": {
-     "target":  {
-       "host": "github.com",
-       "protocol": "https:",
-       "port": 443
-     },
-     "secure": false,
-     "changeOrigin": true,
-     "logLevel": "info"
+  "/api": {
+    "target": "https://johnnydev01.github.io/marvel-api-clone",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
   }
 }
+
+
