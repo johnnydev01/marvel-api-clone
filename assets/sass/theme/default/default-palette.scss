@@ -1,0 +1,36 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+
+
+$default-palette: (
+  50: #e4e4e4,
+  100: #bcbcbc,
+  200: #909090,
+  300: #636363,
+  400: #414141,
+  500: #202020,
+  600: #1c1c1c,
+  700: #181818,
+  800: #131313,
+  900: #0b0b0b,
+  A100: #e76c6c,
+  A200: #e04040,
+  A400: #ec0000,
+  A700: #d30000,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $dark-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
