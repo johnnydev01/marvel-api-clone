@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://johnnydev01.github.io/marvel-api-clone",
+    "target": "https://johnnydev01.github.io",
     "secure": false,
     "pathRewrite": {
       "^/api": ""
