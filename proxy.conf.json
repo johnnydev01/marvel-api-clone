@@ -1,7 +1,12 @@
 {
-  "/api": {
-    "target": "https://johnnydev01.github.io",
-    "secure": true,
-    "changeOrigin": true
+  "/angular": {
+     "target":  {
+       "host": "github.com",
+       "protocol": "https:",
+       "port": 443
+     },
+     "secure": false,
+     "changeOrigin": true,
+     "logLevel": "info"
   }
 }
