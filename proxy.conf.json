@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://johnnydev01.github.io",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
