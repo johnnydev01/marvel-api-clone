@@ -53,7 +53,9 @@ export class CharactersPage implements OnInit {
   getCharactersByName(nameStartsWith: string): Observable<Character[]> {
     console.log("name", nameStartsWith)
     if(nameStartsWith.length == 0){
-      this.store.dispatch(fromCharactersActions.loadCharacterByParams({offset: this.pageEvent.pageIndex, limit:this.pageEvent.pageSize, nameStartsWith: nameStartsWith}));
+      const offset = this.pageEvent?.pageIndex ? this.pageEvent.pageIndex : 0;
+      const limit = this.pageEvent?.pageSize? this.pageEvent.pageSize : 36;
+      this.store.dispatch(fromCharactersActions.loadCharacterByParams({offset: offset, limit: limit, nameStartsWith: nameStartsWith}));
 
     }else {
       this.store.dispatch(fromCharactersActions.loadCharacterByParams({nameStartsWith: nameStartsWith}));
