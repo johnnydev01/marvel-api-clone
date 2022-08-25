@@ -229,6 +229,9 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   top: 0 !important;
   background-color: #202020;
 }
+.mat-drawer-content {
+  overflow: hidden !important;
+}
 .mat-list-base .mat-list-item {
   color: #FFF;
 }
