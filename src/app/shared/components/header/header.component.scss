@@ -122,6 +122,21 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   width: 24px;
   height: 16px;
 }
+#btnGitHub a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+.icon-github {
+  background-image: url('../../../../assets/icons/icon-github.svg');
+  display: flex !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 32px;
+  height: 32px;
+}
 
 .mat-toolbar-row, .mat-toolbar-single-row {
   padding: 0 30px !important;
