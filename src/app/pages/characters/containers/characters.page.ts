@@ -46,12 +46,11 @@ export class CharactersPage implements OnInit {
 
   getCharactersByPage(eventPage: PageEvent): void {
     this.pageEvent = eventPage;
-    this.store.dispatch(fromCharactersActions.loadCharacterByParams({offset: this.pageEvent.pageIndex, limit:this.pageEvent.pageSize}));
+    this.store.dispatch(fromCharactersActions.loadCharacterByParams({offset: this.pageEvent.pageIndex * 36, limit:this.pageEvent.pageSize}));
     this.allCharacters$ = this.store.pipe(select(fromCharactersSelectors.selectCharactersList));
   }
 
   getCharactersByName(nameStartsWith: string): Observable<Character[]> {
-    console.log("name", nameStartsWith)
     if(nameStartsWith.length == 0){
       const offset = this.pageEvent?.pageIndex ? this.pageEvent.pageIndex : 0;
       const limit = this.pageEvent?.pageSize? this.pageEvent.pageSize : 36;
