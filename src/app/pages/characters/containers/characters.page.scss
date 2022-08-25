@@ -176,11 +176,17 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
   text-transform: uppercase;
 }
 
-#searchCharacters::placeholder {
-  font: 800 26px/1 RobotoCondensed,Trebuchet MS,Helvetica,Arial,sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+::ng-deep .mat-form-field-label{
+  font: 800 26px/1 RobotoCondensed,Trebuchet MS,Helvetica,Arial,sans-serif !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
 }
+
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.84375em;
+  padding-top: 3.84375em;
+}
+
 .full-content {
   position: relative;
   display: block;
