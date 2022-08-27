@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Comic } from 'src/app/shared/models/comics.model';
+import { ComicsService } from '../services/comics.service';
 
 
 @Component({
@@ -8,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComicsPage implements OnInit {
 
-  constructor() { }
+  comics$: Observable<Comic[]>;
+
+  constructor(private comicsService: ComicsService) { }
 
   ngOnInit(): void {
+
+    this.comics$ = this.comicsService.getComics();
   }
 
 
