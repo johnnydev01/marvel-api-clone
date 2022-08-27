@@ -1,0 +1,277 @@
+
+
+::ng-deep .swiper {
+    background: #151515;
+  }
+
+  ::ng-deep .swiper-button-prev::after{
+    font-size: 54px;
+    color: #FFF;
+  }
+
+  ::ng-deep .swiper-button-next::after {
+    font-size: 54px;
+    color: #FFF;
+  }
+
+  ::ng-deep .swiper-button-next {
+    right: 78px;
+  }
+
+  ::ng-deep .swiper-slide {
+    text-align: center;
+    max-height: 570px;
+  }
+
+  ::ng-deep .swiper-slide img {
+    width: 100%;
+  }
+
+  ::ng-deep .swiper-slide::before {
+    //background: linear-gradient(90deg,rgba(0,0,0,.65) 0,rgba(0,0,0,.2));
+    position: absolute;
+      opacity: .7;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 3;
+      /* width: 100%; */
+      height: 100%;
+      background-image: linear-gradient(top,transparent -116%,#101010 100%);
+      background-image: -moz-linear-gradient(top,transparent -116%,#101010 100%);
+      background-image: -ms-linear-gradient(top,transparent -116%,#101010 100%);
+      background-image: -o-linear-gradient(top,transparent -116%,#101010 100%);
+      background-image: -webkit-linear-gradient(top,transparent -116%,#101010 100%);
+      content: '\00a0';
+  }
+  ::ng-deep .swiper-pagination-bullet {
+    border-radius: 0;
+    width: 18px;
+    height: 5px;
+    background: #FFF !important;
+    opacity: .4 !important;
+  }
+  ::ng-deep .swiper-pagination-bullet-active {
+    background: #E62429 !important;
+    opacity: 1 !important;
+  }
+  ::ng-deep .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 3px;
+  }
+
+  .slider-frame {
+    position: relative;
+  }
+
+  .sld-txt-wrap {
+    background-color: #151515;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 30px 0 0;
+    height: 400px;
+  }
+  .sld-txt-wrap .sld-txt-content {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    text-align: left;
+    z-index: 3;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .sld-txt-content {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: top;
+    box-sizing: border-box;
+    max-width: 650px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+  }
+
+
+  .fade-in {
+    height: auto;
+    padding: 30px 0;
+  }
+  .fade-in h3 {
+    margin: 0 0 32px;
+  }
+
+  .fade-in h3 a {
+    position: relative;
+    text-transform: uppercase;
+
+  }
+  .fade-in h3 a:hover {
+    color: #FFF !important;
+  }
+  .fade-in h3 a::before{
+    left: 43px;
+    top: -5px;
+    transform-origin: left bottom;
+  }
+  .fade-in h3 a::after{
+    left: -6px;
+    transform-origin: right top;
+  }
+  .fade-in h3 a::before, .fade-in h3 a::after{
+    background-color: #c6a972;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    transform: rotate(-45deg) skewX(45deg);
+    width: 20px;
+  }
+  .cta-btn{
+    font: 400 14px/1"Roboto Bold","Trebuchet MS",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    background-color: transparent;
+    border-radius: 0;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    margin: 15px auto;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    letter-spacing: 0;
+    width: auto;
+    z-index: 10;
+  }
+  .cta-btn.cta-btn--outline.cta-btn--light::before {
+    border-width: 1px 1px 0 0;
+    right: 0;
+  }
+  .cta-btn.cta-btn--outline.cta-btn--light::before, .cta-btn.cta-btn--outline.cta-btn--light::after {
+    border-color: #fff;
+    transition: none;
+    width: calc(100% - 16px);
+  }
+  .cta-btn::before {
+    margin-left: 16px;
+    top: 0;
+  }
+
+  .cta-btn::before, .cta-btn::after {
+    border-style: solid;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    height: 16px;
+    position: relative;
+  }
+  .cta-btn.cta-btn--outline.cta-btn--light .innerFill {
+    background-color: transparent;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    color: #fff;
+    opacity: 1;
+    transition: none;
+    text-align: center;
+    line-height: 16px;
+  }
+
+  .cta-btn .innerFill {
+    padding: 0 35px 0 35px;
+  }
+
+  .cta-btn.cta-btn--outline.cta-btn--light .innerFill::before,
+  .cta-btn.cta-btn--outline.cta-btn--light .innerFill::after {
+    background-size: 16px 46px;
+    background-image: repeating-linear-gradient(-45deg,white,white 1px,transparent 1px,transparent 16px);
+    transition: none;
+  }
+  .cta-btn.cta-btn--outline.cta-btn--light .innerFill::before {
+    top: 0;
+    left:0;
+  }
+  .cta-btn.cta-btn--outline.cta-btn--light .innerFill::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  .cta-btn.cta-btn--outline.cta-btn--light::after {
+    border-width: 0 0 1px 1px;
+    left: 0;
+  }
+  .cta-btn.cta-btn--outline.cta-btn--light::before, .cta-btn.cta-btn--outline.cta-btn--light::after {
+    border-color: #fff;
+    transition: none;
+    width: calc(100% - 16px);
+  }
+  .cta-btn div::before, .cta-btn div::after {
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0 0 16px 16px;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    position: absolute;
+  }
+  .cta-btn::after {
+    border-width: 16px 16px 0 0;
+    bottom: 0;
+    margin-right: 16px;
+  }
+  .cta-btn::before, .cta-btn::after {
+    border-style: solid;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    height: 16px;
+    position: relative;
+  }
+  .fade-in h2 {
+    font-size: 32px;
+    font: 800 26px/1 "RobotoCondensed","Trebuchet MS",Helvetica,Arial,sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  @media screen and(min-width: 961px) {
+    ::ng-deep .swiper-wrapper {
+      margin-left: -100px;
+    }
+    .fade-in h2  {
+      font-size: 40px;
+    }
+    .sld-txt-wrap .sld-txt-content {
+      align-items: center;
+    }
+
+    .sld-txt-wrap {
+      height: 100%;
+      padding: 0 80px 0 0;
+      max-height: 570px;
+      background-color: transparent;
+    }
+    .slider-frame {
+      position: absolute;
+      top: 14%;
+      left: 11%;
+    }
+}
+@media (min-width: 839px) {
+  .sld-txt-wrap .sld-txt-content {
+    padding-left: 20px;
+  }
+}
