@@ -64,6 +64,133 @@
   letter-spacing: 0;
 }
 
+.JCFilter-showmore {
+  margin: 70px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.JCFilter-showmore .btn-Merger {
+  position: relative;
+  height: 48px;
+}
+.JCFilter-showmore * {
+  margin: 0 auto;
+}
+
+.JCFilter-showmore .btn-Merger .cta-btn {
+    margin: 0 auto;
+}
+.cta-btn {
+    background-color: transparent;
+    border-radius: 0;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    margin: 15px auto;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    letter-spacing: 0;
+    width: auto;
+    z-index: 10;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red::before, .cta-btn.cta-btn--solid.cta-btn--red::after {
+    background-color: #e62429;
+    border-color: #e62429;
+    transition: none;
+    width: calc(100% - 16px);
+}
+
+.cta-btn::before {
+  border-width: 0 0 16px 16px;
+  margin-left: 16px;
+  top: 0;
+}
+
+.cta-btn::after {
+  border-width: 16px 16px 0 0;
+  bottom: 0;
+  margin-right: 16px;
+}
+
+.cta-btn::before, .cta-btn::after {
+  border-style: solid;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 16px;
+  position: relative;
+}
+.cta-btn.cta-btn--solid.cta-btn--red:hover::before, .cta-btn.cta-btn--solid.cta-btn--red:hover::after {
+  background-color: rgb(159, 0, 19);
+  border-color: rgb(159, 0, 19);
+  opacity: 1;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red .innerFill {
+  color: #fff;
+  background-color: #e62429;
+  transition: none;
+  text-align: center;
+  line-height: 16px;
+}
+.cta-btn .innerFill {
+  padding: 0 35px 0 35px;
+}
+#btnShowMore:hover .innerFill {
+  background-color: rgb(159, 0, 19) !important;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red .innerFill::before, .cta-btn.cta-btn--solid.cta-btn--red .innerFill::after {
+  border-color: #e62429 transparent;
+  transition: none;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red:hover .innerFill::before {
+  border-color: rgb(159, 0, 19) transparent;
+  opacity: 1;
+}
+.cta-btn.cta-btn--solid.cta-btn--red:hover .innerFill::after {
+  border-color: rgb(159, 0, 19) transparent;
+  opacity: 1;
+}
+.cta-btn div::before, .cta-btn div::after {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 0 16px 16px;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  position: absolute;
+}
+.cta-btn div::before {
+  left: 0;
+  top: 0;
+}
+
+.cta-btn div::after {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.cta-btn div {
+  display: block;
+  text-align: center;
+}
+
+.filterwidget .inline-cta span, .cta-btn, .cta-btn div {
+  font: 400 14px/1 "Roboto","Trebuchet MS",Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
 
 @media (min-width: 320px){
   .JCMultiRow {
