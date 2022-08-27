@@ -405,8 +405,8 @@ figure.img-wrapper {
   z-index: 40;
 }
 
-.mvl-card-explore .explore-link:focus figure img,
-.mvl-card-explore:hover figure img {
+.mvl-card-explore .explore-link:focus div figure img,
+.mvl-card-explore:hover div figure img {
   transform: scale3d(1.05,1.05,1);
 }
 

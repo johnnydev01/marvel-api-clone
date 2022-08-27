@@ -2,6 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import './assets/sass/main.scss';
 
+
 :root {
   $primary:#202020;
 
@@ -11,4 +12,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 a {
   color: #FFF;
   text-decoration: none;
+}
+
+a:hover {
+  color: #FFF;
 }
