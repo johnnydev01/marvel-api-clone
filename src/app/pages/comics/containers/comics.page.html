@@ -1,5 +1,5 @@
 <app-comics-carousel></app-comics-carousel>
-<section>
+<section *ngIf="!(loading$ | async)">
   <div class="grid-container mt-30">
     <div class="JCMultiRow">
       <div class="row-item comic-item" *ngFor="let comic of comics$ | async">
@@ -22,10 +22,21 @@
     </div>
   </div>
 </section>
-<div class="JCFilter-showmore">
+<div class="JCFilter-showmore" *ngIf="!(shouldShowLoadingIndicator$ | async)">
   <div class="btn-Merger">
-    <a id="btnShowMore" class="cta-btn cta-btn--solid cta-btn--red active" aria-current="true" data-browse-fetchmore="browse">
+    <a id="btnShowMore"  (click)="loadMore()" class="cta-btn cta-btn--solid cta-btn--red active" aria-current="true" data-browse-fetchmore="browse">
       <div class="innerFill">Load More</div>
     </a>
   </div>
 </div>
+
+<span
+  *ngIf="shouldShowLoadingIndicator$ | async"
+  class="d-flex justify-content-center align-items-center"
+>
+  <mat-progress-spinner
+  [color]="color"
+  [mode]="mode"
+  [value]="value">
+</mat-progress-spinner>
+</span>

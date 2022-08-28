@@ -14,8 +14,9 @@ export class ComicsService {
 
   constructor(private http: HttpClient) {}
 
-  getComics(limit = 12): Observable<Comic[]> {
-    return this.http.get<Comic[]>(`${this.baseUrl}/comics${this.params}&limit=${limit}`)
+  getComics(offset = 0): Observable<Comic[]> {
+    const limit = 12 * (offset + 1);
+    return this.http.get<Comic[]>(`${this.baseUrl}/comics${this.params}&offset=${offset}&limit=${limit}`)
       .pipe(
         map(response => response['data'].results)
       );
