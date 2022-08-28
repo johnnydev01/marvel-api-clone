@@ -29,7 +29,7 @@ export class ComicsEffects {
       mergeMap(([, entities, page]) => {
         return this.comicsService.getComics(page)
         .pipe(
-          map(entities => fromComicsActions.loadComicsSuccess({entities})),
+          map(entities =>  fromComicsActions.loadComicsSuccess({entities})),
           catchError(() => of(fromComicsActions.loadComicsFailure())),
         )
       })
