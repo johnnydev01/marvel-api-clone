@@ -27,18 +27,11 @@ export class HeaderComponent {
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addEventListener('change', this._mobileQueryListener);
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
-  }
-
-  get onscroll(): boolean {
-    window.onscroll = function (e){
-        return true;
-    }
-    return false;
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   mouseEnter(id: string) {
