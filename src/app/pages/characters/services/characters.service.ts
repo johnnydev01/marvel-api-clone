@@ -17,17 +17,10 @@ export class CharactersService {
 
   getAllCharacters(offset = 0, limit = 36, nameStartsWith?: string): Observable<Character[]> {
     const params = nameStartsWith ? new HttpParams().append('nameStartsWith', nameStartsWith) : undefined;
-
     return this.http.get<Character[]>(`${this.baseUrl}/characters${this.params}&orderBy=name&offset=${offset}&limit=${limit}`, {params} )
       .pipe(
         map(response => response['data'].results)
       );
   }
 
-  // getCharacterByName(nameStartsWith: string): Observable<Character[]> {
-  //   return this.http.get<Character[]>(`${this.baseUrl}/characters${this.params}&nameStartsWith=${nameStartsWith}`)
-  //   .pipe(
-  //     map(response => response['data'].results)
-  //   );
-  // }
 }
