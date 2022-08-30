@@ -13,7 +13,7 @@ import { CharactersService } from '../services/characters.service';
 import { charactersInitialSate } from './characters.reducer';
 import * as fromCharactersActions from './characters.actions';
 
-fdescribe(CharactersEffects.name, () => {
+describe(CharactersEffects.name, () => {
 
   let actions$: Observable<Action>;
   let effects: CharactersEffects;

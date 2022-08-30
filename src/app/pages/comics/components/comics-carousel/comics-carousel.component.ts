@@ -45,8 +45,4 @@ export class ComicsCarouselComponent implements OnInit {
       }
     }
   };
-  onSwiper(swiper) {
-  }
-  onSlideChange() {
-  }
 }
