@@ -1,16 +1,31 @@
 import { TestBed } from '@angular/core/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+
+describe(AppComponent.name, () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent
       ],
+      imports: [
+        MatSidenavModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatListModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        RouterTestingModule
+      ]
     }).compileComponents();
   });
 
@@ -26,10 +41,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('marvel-api-clone');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('marvel-api-clone app is running!');
-  });
 });

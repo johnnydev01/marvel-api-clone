@@ -34,12 +34,6 @@ export class HeaderComponent {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  mouseEnter(id: string) {
-    document.getElementById(id)?.classList.add('active');
-  }
 
-  mouseLeave(id: string) {
-    document.getElementById(id)?.classList.remove('active');
-  }
 
 }
