@@ -247,7 +247,7 @@
     text-transform: uppercase;
   }
 
-@media screen and(min-width: 961px) {
+@media screen and ( min-width: 961px ) {
   ::ng-deep .swiper-wrapper {
     margin-left: -100px;
   }
@@ -274,7 +274,7 @@
     left: 11%;
   }
 }
-@media (min-width: 839px) {
+@media ( min-width: 839px ) {
   .sld-txt-wrap .sld-txt-content {
     padding-left: 20px;
   }
