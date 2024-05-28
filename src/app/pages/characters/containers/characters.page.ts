@@ -7,7 +7,7 @@ import * as fromCharactersActions from '../state/characters.actions';
 import * as fromCharactersSelectors from '../state/characters.selectors';
 
 import { PageEvent } from '@angular/material/paginator';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Character } from 'src/app/shared/models/character.model';
 
 @Component({
@@ -26,7 +26,7 @@ export class CharactersPage implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent;
 
-  searchControl = new FormControl('');
+  searchControl = new UntypedFormControl('');
   options: string[] = [];
 
   charactersFilter$ = this.searchControl.valueChanges
