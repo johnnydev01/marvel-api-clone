@@ -2,11 +2,13 @@ import { CharactersPage } from './pages/characters/containers/characters.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+type PathMatch = "full" | "prefix" | undefined;
+
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'characters',
-    pathMatch: 'full',
+    pathMatch: 'full' as PathMatch,
   },
   {
     path: 'characters',
