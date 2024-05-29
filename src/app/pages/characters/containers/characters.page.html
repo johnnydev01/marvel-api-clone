@@ -71,3 +71,16 @@
   </mat-paginator>
 </div>
 
+<span
+  id="loading"
+  *ngIf="shouldShowLoadingIndicator$ | async"
+  class="d-flex justify-content-center align-items-center"
+>
+  <mat-progress-spinner
+  [color]="color"
+  [mode]="mode"
+  [value]="value">
+</mat-progress-spinner>
+</span>
+
+

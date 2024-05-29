@@ -2,7 +2,7 @@ import { environment } from './../../../../environments/environment';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { CharactersService } from './characters.service';
+import { CharactersDataService } from './characters-data.service';
 import { CharactersMock } from './characters.mock';
 
 const baseUrl = environment.BASE_URL;
@@ -14,8 +14,8 @@ const mockData = {
 };
 
 
-describe(CharactersService.name, () => {
-  let service: CharactersService;
+describe(CharactersDataService.name, () => {
+  let service: CharactersDataService;
   let httpController: HttpTestingController;
 
   beforeEach(() => {
@@ -23,9 +23,9 @@ describe(CharactersService.name, () => {
       imports: [
         HttpClientTestingModule,
       ],
-      providers: [CharactersService]
+      providers: [CharactersDataService]
     });
-    service = TestBed.inject(CharactersService);
+    service = TestBed.inject(CharactersDataService);
     httpController = TestBed.inject(HttpTestingController);
   });
 
@@ -35,8 +35,8 @@ describe(CharactersService.name, () => {
     expect(service).toBeTruthy();
   });
 
-  it(`#${CharactersService.prototype.getAllCharacters.name} should return characters`, done => {
-    service.getAllCharacters().subscribe( character => {
+  it(`#${CharactersDataService.prototype.getWithQuery.name} should return characters`, done => {
+    service.getWithQuery('').subscribe( character => {
       expect(character[0].name).toBe('3-D Man');
       expect(character[1].name).toBe('A-Bomb (HAS)');
       done();

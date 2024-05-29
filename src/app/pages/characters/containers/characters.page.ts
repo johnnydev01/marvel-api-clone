@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Store, select } from '@ngrx/store';
-import { debounceTime, filter, distinctUntilChanged, switchMap, merge, tap, Observable } from 'rxjs';
+import { debounceTime, filter, distinctUntilChanged, switchMap, merge, Observable } from 'rxjs';
 
-import * as fromCharactersActions from '../state/characters.actions';
-import * as fromCharactersSelectors from '../state/characters.selectors';
 
 import { PageEvent } from '@angular/material/paginator';
 import { UntypedFormControl } from '@angular/forms';
 import { Character } from 'src/app/shared/models/character.model';
+import { CharactersEntityService } from '../services/characters-entity.service';
+import { QueryParams } from '@ngrx/data';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-characters',
@@ -17,7 +18,13 @@ import { Character } from 'src/app/shared/models/character.model';
 })
 export class CharactersPage implements OnInit {
 
-  allCharacters$ = this.store.pipe(select(fromCharactersSelectors.selectCharactersList))
+  color: ThemePalette = 'warn';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
+  shouldShowLoadingIndicator$ = this.charactersService.loading$;
+
+
+  allCharacters$ = this.charactersService.entities$;;
   // MatPaginator Inputs
   length = 2700;
   pageSize = 36;
@@ -31,38 +38,48 @@ export class CharactersPage implements OnInit {
 
   charactersFilter$ = this.searchControl.valueChanges
     .pipe(
-      debounceTime(300),
+      debounceTime(500),
       filter((typedValue) => typedValue.length >=3 || !typedValue.length),
       distinctUntilChanged(),
       switchMap((typedValue) => this.getCharactersByName(typedValue))
     )
   characters$ = merge(this.allCharacters$, this.charactersFilter$);
 
-  constructor(private store: Store) { }
+  constructor(
+    private charactersService: CharactersEntityService
+  ) { }
 
-  ngOnInit(): void {
-    this.store.dispatch(fromCharactersActions.loadCharacterByParams({offset: 0, limit:36}));
-  }
+  ngOnInit(): void {}
 
   getCharactersByPage(eventPage: PageEvent): void {
     this.pageEvent = eventPage;
-    this.store.dispatch(fromCharactersActions.loadCharacterByParams({offset: this.pageEvent.pageIndex * 36, limit:this.pageEvent.pageSize}));
-    this.allCharacters$ = this.store.pipe(select(fromCharactersSelectors.selectCharactersList));
+    const params: QueryParams = {
+      offset: (this.pageEvent.pageIndex * 36).toString(),
+      limit: (this.pageEvent.pageSize).toString()
+    };
+    this.charactersService.clearCache();
+    this.charactersService.getWithQuery(params)
+    this.allCharacters$ = this.charactersService.entities$;
   }
 
   getCharactersByName(nameStartsWith: string): Observable<Character[]> {
-    if(nameStartsWith.length == 0){
-      const offset = this.pageEvent?.pageIndex ? this.pageEvent.pageIndex : 0;
-      const limit = this.pageEvent?.pageSize? this.pageEvent.pageSize : 36;
-      this.store.dispatch(fromCharactersActions.loadCharacterByParams({offset: offset, limit: limit, nameStartsWith: nameStartsWith}));
+    this.charactersService.clearCache();
 
-    }else {
-      this.store.dispatch(fromCharactersActions.loadCharacterByParams({nameStartsWith: nameStartsWith}));
+    if(nameStartsWith.length == 0){
+      const offset = (this.pageEvent?.pageIndex ? this.pageEvent.pageIndex : 0).toString();
+      const limit = (this.pageEvent?.pageSize? this.pageEvent.pageSize : 36).toString();
+      const params: QueryParams = {offset, limit}
+
+      this.charactersService.getWithQuery(params)
+    } else {
+      const params: QueryParams = {nameStartsWith, offset: '0', limit: '36'};
+      this.charactersService.getWithQuery(params)
+
     }
-    const characters$ = this.store.pipe(select(fromCharactersSelectors.selectCharactersList));
+    const characters$ = this.charactersService.entities$;
     characters$.subscribe((characters) => {
       if(characters.length < 36) {
-        const charactersNames: string[] =[];
+        const charactersNames: string[] = [];
         characters.forEach((character) => {
           charactersNames.push(character.name);
         });

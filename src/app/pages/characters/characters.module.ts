@@ -13,9 +13,25 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { CharactersPage } from './containers/characters.page';
-import { charactersReducer } from './state/characters.reducer';
-import { CharactersEffects } from './state/characters.effects';
 
+import { CharactersEntityService } from './services/characters-entity.service';
+import { CharactersResolver } from './services/characters.resolver';
+import { EntityDataService, EntityDefinitionService, EntityMetadataMap } from '@ngrx/data';
+import { CharactersDataService } from './services/characters-data.service';
+import { environment } from 'src/environments/environment';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+
+const entityMetaData: EntityMetadataMap = {
+  Character: {
+    entityDispatcherOptions: {
+      optimisticSaveEntities: true,
+      optimisticDelete: true
+    }
+
+  },
+
+}
 
 
 @NgModule({
@@ -32,12 +48,30 @@ import { CharactersEffects } from './state/characters.effects';
     RouterModule.forChild([
       {
         path: '',
-        component: CharactersPage
+        component: CharactersPage,
+        resolve: {
+          characters: CharactersResolver
+        }
       }
     ]),
-    StoreModule.forFeature('characters', charactersReducer),
-    EffectsModule.forFeature([CharactersEffects]),
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
+
+  ],
+  providers: [
+    CharactersEntityService,
+    CharactersResolver,
   ]
 })
-export class CharactersModule { }
+export class CharactersModule {
+
+  constructor(
+    private eds: EntityDefinitionService,
+    private entityDataService: EntityDataService,
+    private charactersDataService: CharactersDataService
+  ) {
+    eds.registerMetadataMap(entityMetaData);
+    entityDataService.registerService('Character', charactersDataService);
+
+  }
+}
