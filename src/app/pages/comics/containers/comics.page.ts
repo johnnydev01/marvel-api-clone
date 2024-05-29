@@ -7,9 +7,7 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { combineLatest, map, Observable } from 'rxjs';
 
 import { Comic } from 'src/app/shared/models/comics.model';
-
-import * as fromComicsActions from '../state/comics.actions';
-import * as fromComicsSelectors from '../state/comics.selectores';
+import { ComicsEntityService } from '../services/comics-entity.service';
 
 
 @Component({
@@ -20,8 +18,6 @@ import * as fromComicsSelectors from '../state/comics.selectores';
 export class ComicsPage implements OnInit {
 
   comics$: Observable<Comic[]>;
-  loading$: Observable<boolean>;
-  loadingMore$: Observable<boolean>;
 
   shouldShowLoadingIndicator$: Observable<boolean>;
 
@@ -29,27 +25,17 @@ export class ComicsPage implements OnInit {
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
 
-  constructor(private store: Store) { }
+  page = 0;
+
+  constructor(private comicsService: ComicsEntityService) { }
 
   ngOnInit(): void {
-    this.store.dispatch(fromComicsActions.loadListFromLastComics());
+    this.comics$ = this.comicsService.entities$;
 
-    this.comics$ = this.store.pipe(select(fromComicsSelectors.selectComicsEntities));
-    this.loading$ = this.store.pipe(select(fromComicsSelectors.selectComicsLoading));
-    this.loadingMore$ = this.store.pipe(select(fromComicsSelectors.selectLoadingMore));
-
-
-    this.shouldShowLoadingIndicator$ = combineLatest([
-      this.loading$,
-      this.loadingMore$
-    ])
-    .pipe(
-      map(([loading, loadingMore]) => loading || loadingMore),
-    );
+    this.shouldShowLoadingIndicator$ = this.comicsService.loading$;
   }
 
   loadMore(): void {
-    this.store.dispatch(fromComicsActions.loadMore());
+   this.comicsService.getWithQuery({'offset': (this.page+1).toString()})
   }
-
 }

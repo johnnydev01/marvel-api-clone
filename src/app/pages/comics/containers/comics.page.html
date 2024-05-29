@@ -1,5 +1,5 @@
 <app-comics-carousel></app-comics-carousel>
-<section *ngIf="!(loading$ | async)">
+<section *ngIf="!(shouldShowLoadingIndicator$ | async)">
   <div class="grid-container mt-30">
     <div class="JCMultiRow">
       <div class="row-item comic-item" *ngFor="let comic of comics$ | async">

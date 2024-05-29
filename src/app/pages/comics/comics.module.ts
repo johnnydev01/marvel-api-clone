@@ -7,12 +7,24 @@ import { RouterModule } from '@angular/router';
 import { SwiperModule } from 'swiper/angular';
 import { ComicsPage } from './containers/comics.page';
 import { ComicsCarouselComponent } from './components/comics-carousel/comics-carousel.component';
-import { comicsReducer } from './state/comics.reducer';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { EffectsModule } from '@ngrx/effects';
-import { ComicsEffects } from './state/comics.effects';
+import { ComicsEntityService } from './services/comics-entity.service';
+import { ComicsResolver } from './services/comics.resolver';
+import { EntityDataService, EntityDefinitionService, EntityMetadataMap } from '@ngrx/data';
+import { ComicsDataService } from './services/comics-data.service';
 
+
+const entityMetaData: EntityMetadataMap = {
+  Comic: {
+    entityDispatcherOptions: {
+      optimisticSaveEntities: true,
+      optimisticDelete: true
+    }
+
+  },
+
+}
 
 @NgModule({
   declarations: [
@@ -26,12 +38,28 @@ import { ComicsEffects } from './state/comics.effects';
     RouterModule.forChild([
       {
         path: '',
-        component: ComicsPage
+        component: ComicsPage,
+        resolve: {
+          comics: ComicsResolver
+        }
       }
     ]),
-    StoreModule.forFeature('comics', comicsReducer),
-    EffectsModule.forFeature([ComicsEffects]),
     MatProgressSpinnerModule
+  ],
+  providers: [
+    ComicsEntityService,
+    ComicsResolver
   ]
 })
-export class ComicsModule { }
+export class ComicsModule {
+
+  constructor(
+    private eds: EntityDefinitionService,
+    private entityDataService: EntityDataService,
+    private charactersDataService: ComicsDataService
+  ) {
+    eds.registerMetadataMap(entityMetaData);
+    entityDataService.registerService('Comic', charactersDataService);
+
+  }
+ }

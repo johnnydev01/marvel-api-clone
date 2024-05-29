@@ -2,7 +2,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { environment } from 'src/environments/environment';
 
-import { ComicsService } from './comics.service';
+import { ComicsService } from './comics-data.service';
 import { ComicsMock } from './commics.mock';
 
 
