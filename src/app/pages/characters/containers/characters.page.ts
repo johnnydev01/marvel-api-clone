@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { debounceTime, filter, distinctUntilChanged, switchMap, merge, Observable } from 'rxjs';
 
 
-import { PageEvent } from '@angular/material/paginator';
+import { LegacyPageEvent as PageEvent } from '@angular/material/legacy-paginator';
 import { UntypedFormControl } from '@angular/forms';
 import { Character } from 'src/app/shared/models/character.model';
 import { CharactersEntityService } from '../services/characters-entity.service';
 import { QueryParams } from '@ngrx/data';
 import { ThemePalette } from '@angular/material/core';
-import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { LegacyProgressSpinnerMode as ProgressSpinnerMode } from '@angular/material/legacy-progress-spinner';
 
 @Component({
   selector: 'app-characters',
