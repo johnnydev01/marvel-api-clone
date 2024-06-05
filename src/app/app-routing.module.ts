@@ -13,10 +13,12 @@ const routes: Routes = [
   {
     path: 'characters',
     loadChildren: () => import('./pages/characters/characters.module').then(m => m.CharactersModule),
+    title: 'Characters Page',
   },
   {
     path: 'comics',
     loadChildren: () => import('./pages/comics/comics.module').then(m => m.ComicsModule),
+    title: 'Comics Page',
   }
 ];
 

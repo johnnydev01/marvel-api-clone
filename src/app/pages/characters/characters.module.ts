@@ -49,6 +49,7 @@ const entityMetaData: EntityMetadataMap = {
       {
         path: '',
         component: CharactersPage,
+        title: 'Characters',
         resolve: {
           characters: CharactersResolver
         }

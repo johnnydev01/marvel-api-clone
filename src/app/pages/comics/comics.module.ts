@@ -39,6 +39,7 @@ const entityMetaData: EntityMetadataMap = {
       {
         path: '',
         component: ComicsPage,
+        title: 'Comics',
         resolve: {
           comics: ComicsResolver
         }
