@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { Observable, filter, first, tap } from "rxjs";
 import { QueryParams } from "@ngrx/data";
 import { ComicsEntityService } from "./comics-entity.service";
 
 @Injectable()
-export class ComicsResolver implements Resolve<boolean> {
+export class ComicsResolver  {
 
   constructor(private comicsService: ComicsEntityService) { }
 

@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { CharactersEntityService } from "./characters-entity.service";
 import { Observable, filter, first, tap } from "rxjs";
 import { QueryParams } from "@ngrx/data";
 
 @Injectable()
-export class CharactersResolver implements Resolve<boolean> {
+export class CharactersResolver  {
 
   constructor(private charactersService: CharactersEntityService) { }
 
