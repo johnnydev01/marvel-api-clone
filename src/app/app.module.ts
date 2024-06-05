@@ -39,7 +39,7 @@ import { entityConfig } from './entity-metadata';
       stateKey: 'router',
       routerState: RouterState.Minimal
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production , connectInZone: true}),
     EntityDataModule.forRoot(entityConfig),
   ],
   providers: [
