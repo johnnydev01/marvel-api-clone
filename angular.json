@@ -74,11 +74,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "marvel-api-clone:build:production",
-              "proxyConfig": "./proxy.conf.json"
+              "proxyConfig": "./proxy.conf.json",
+              "buildTarget": "marvel-api-clone:build:production"
             },
             "development": {
-              "browserTarget": "marvel-api-clone:build:development"
+              "buildTarget": "marvel-api-clone:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "marvel-api-clone:build"
+            "buildTarget": "marvel-api-clone:build"
           }
         },
         "test": {
@@ -145,7 +145,7 @@
           "defaultConfiguration": "production"
         },
         "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "configurations": {
             "development": {
               "browserTarget": "marvel-api-clone:build:development",
@@ -159,7 +159,7 @@
           "defaultConfiguration": "development"
         },
         "prerender": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "routes": [
               "/"
