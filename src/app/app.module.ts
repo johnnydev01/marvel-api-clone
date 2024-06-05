@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,7 +21,6 @@ import { entityConfig } from './entity-metadata';
     AppComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -43,7 +42,9 @@ import { entityConfig } from './entity-metadata';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EntityDataModule.forRoot(entityConfig),
   ],
-  providers: [],
+  providers: [
+    { provide: APP_ID,  useValue: 'serverApp' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
