@@ -8,7 +8,7 @@ import { SwiperModule } from 'swiper/angular';
 import { ComicsPage } from './containers/comics.page';
 import { ComicsCarouselComponent } from './components/comics-carousel/comics-carousel.component';
 
-import {MatLegacyProgressSpinnerModule as MatProgressSpinnerModule} from '@angular/material/legacy-progress-spinner';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ComicsEntityService } from './services/comics-entity.service';
 import { ComicsResolver } from './services/comics.resolver';
 import { EntityDataService, EntityDefinitionService, EntityMetadataMap } from '@ngrx/data';

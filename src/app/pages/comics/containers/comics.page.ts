@@ -2,7 +2,7 @@ import { select } from '@ngrx/store';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
-import {LegacyProgressSpinnerMode as ProgressSpinnerMode} from '@angular/material/legacy-progress-spinner';
+import { ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 import { combineLatest, map, Observable } from 'rxjs';
 
