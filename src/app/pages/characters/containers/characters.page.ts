@@ -80,7 +80,7 @@ export class CharactersPage implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.charactersService.clearCache();
     const params: QueryParams = {orderBy: 'name', offset: '0', limit: '36'}
     this.charactersService.getWithQuery(params);
   }
