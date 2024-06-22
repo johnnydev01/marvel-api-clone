@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { SwiperOptions } from 'swiper';
 
 import SwiperCore, {A11y,
@@ -10,6 +11,7 @@ import SwiperCore, {A11y,
   Thumbs,
   Virtual,
   Zoom } from 'swiper';
+import { SwiperModule } from 'swiper/angular';
 
 SwiperCore.use([
   Navigation,
@@ -26,7 +28,12 @@ SwiperCore.use([
 @Component({
   selector: 'app-comics-carousel',
   templateUrl: './comics-carousel.component.html',
-  styleUrls: ['./comics-carousel.component.scss']
+  styleUrls: ['./comics-carousel.component.scss'],
+  standalone: true,
+  imports: [
+    SwiperModule
+  ]
+
 })
 export class ComicsCarouselComponent implements OnInit {
 
@@ -35,7 +42,7 @@ export class ComicsCarouselComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  config: SwiperOptions = {
+  public config: SwiperOptions = {
     slidesPerView: 1,
     autoplay: true,
     pagination: { clickable: true},

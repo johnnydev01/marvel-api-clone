@@ -14,7 +14,7 @@ export class ComicsDataService extends DefaultDataService<Comic>{
   params = environment.PARAMS;
 
   constructor(http: HttpClient,  httpUrlGenerator: HttpUrlGenerator) {
-    super('Comic', http, httpUrlGenerator)
+    super('Comics', http, httpUrlGenerator)
   }
   override getWithQuery(params: string | QueryParams ): Observable<Comic[]> {
     const limit = 12;

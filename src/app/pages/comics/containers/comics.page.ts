@@ -1,41 +1,56 @@
-import { select } from '@ngrx/store';
-import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
-import { ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { MatProgressSpinner, ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
-import { combineLatest, map, Observable } from 'rxjs';
 
-import { Comic } from 'src/app/shared/models/comics.model';
 import { ComicsEntityService } from '../services/comics-entity.service';
+import { ComicsCarouselComponent } from '../components/comics-carousel/comics-carousel.component';
+import { EntityDataService } from '@ngrx/data';
+import { ComicsDataService } from '../services/comics-data.service';
+import { AsyncPipe } from '@angular/common';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 
 @Component({
   selector: 'app-comics',
   templateUrl: './comics.page.html',
-  styleUrls: ['./comics.page.scss']
+  styleUrls: ['./comics.page.scss'],
+  standalone: true,
+  imports: [
+    MatProgressSpinner,
+    ComicsCarouselComponent,
+    AsyncPipe
+  ],
+  providers: [
+    ComicsEntityService,
+  ]
 })
 export class ComicsPage implements OnInit {
+  private entityDataService = inject(EntityDataService);
+  private comicsDataService =  inject(ComicsDataService)
+  private comicsService = inject(ComicsEntityService);
 
-  comics$: Observable<Comic[]>;
+  public comics = toSignal(this.comicsService.entities$);
 
-  shouldShowLoadingIndicator$: Observable<boolean>;
+  public shouldShowLoadingIndicator = toSignal(this.comicsService.loading$);
 
   color: ThemePalette = 'warn';
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
 
-  page = 0;
+  private page = signal(0);
 
-  constructor(private comicsService: ComicsEntityService) { }
+  constructor() {
+    this.entityDataService.registerService('Comic', this.comicsDataService);
+
+   }
 
   ngOnInit(): void {
-    this.comics$ = this.comicsService.entities$;
-
-    this.shouldShowLoadingIndicator$ = this.comicsService.loading$;
+    this.comicsService.getWithQuery({'offset':  '0'});
   }
 
   loadMore(): void {
-   this.comicsService.getWithQuery({'offset': (this.page+1).toString()})
+   this.page.update((page) => page + 1);
+   this.comicsService.getWithQuery({'offset': this.page().toString()})
   }
 }
