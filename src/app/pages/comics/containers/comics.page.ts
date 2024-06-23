@@ -9,6 +9,7 @@ import { EntityDataService } from '@ngrx/data';
 import { ComicsDataService } from '../services/comics-data.service';
 import { AsyncPipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ComicsItemComponent } from '../components/comics-item/comics-item.component';
 
 
 @Component({
@@ -19,7 +20,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
   imports: [
     MatProgressSpinner,
     ComicsCarouselComponent,
-    AsyncPipe
+    AsyncPipe,
+    ComicsItemComponent
   ],
   providers: [
     ComicsEntityService,
@@ -30,7 +32,6 @@ export class ComicsPage implements OnInit {
   private comicsDataService =  inject(ComicsDataService)
   private comicsService = inject(ComicsEntityService);
 
-  public comics = toSignal(this.comicsService.entities$);
 
   public shouldShowLoadingIndicator = toSignal(this.comicsService.loading$);
 
