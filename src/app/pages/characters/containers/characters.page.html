@@ -30,12 +30,14 @@
         type="search"
         id="searchCharacters"
         matInput
-        [formControl]="searchControl"
+        #searchQuery
+        (input)="onSearchUpdated(searchQuery.value)"
+        (selected)="onSearchUpdated(searchQuery.value)"
         [matAutocomplete]="auto"
         placeholder="Search"
       >
 
-      <mat-autocomplete #auto="matAutocomplete">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onSearchUpdated($event.option.value)'>
         @for (option of options(); track option) {
           <mat-option [value]="option">
             {{option}}
@@ -87,5 +89,3 @@
   </mat-progress-spinner>
   </span>
 }
-
-

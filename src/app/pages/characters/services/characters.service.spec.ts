@@ -2,7 +2,7 @@ import { environment } from './../../../../environments/environment';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { CharactersDataService } from './characters-data.service';
+import { CharactersDataService } from './characters.service';
 import { CharactersMock } from './characters.mock';
 
 const baseUrl = environment.BASE_URL;
