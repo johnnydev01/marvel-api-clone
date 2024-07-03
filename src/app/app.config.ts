@@ -23,15 +23,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideStore(reducers, {
-      metaReducers,
-      runtimeChecks : {
-          strictStateImmutability: true,
-          strictActionImmutability: true,
-          strictActionSerializability: true,
-          strictStateSerializability:true
-      }
-  }),
     provideEffects(),
     provideEntityData(entityConfig, withEffects()),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true}),
