@@ -36,15 +36,3 @@
   </div>
 }
 
-@if(shouldShowLoadingIndicator()) {
-  <span
-  id="loading"
-  class="d-flex justify-content-center align-items-center"
->
-  <mat-progress-spinner
-  [color]="color"
-  [mode]="mode"
-  [value]="value">
-</mat-progress-spinner>
-</span>
-}

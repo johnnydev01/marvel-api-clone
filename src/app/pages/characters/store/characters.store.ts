@@ -66,8 +66,6 @@ export const CharactersStore = signalStore(
   withComputed((({ characters, query}) => ({
     charactersNames: computed(() =>  characters().length < 36 ? characters().map(character => character.name):
      query().nameStartsWith ?? []),
-
-
   }))),
 
 )

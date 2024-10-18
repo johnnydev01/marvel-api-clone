@@ -13,6 +13,7 @@ import {  MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AsyncPipe, DatePipe, JsonPipe } from '@angular/common';
 import { CharactersQuery, CharactersStore } from '../store/characters.store';
 import { Character } from 'src/app/shared/models/character.model';
+import { ComicsPage } from '../../comics/containers/comics.page';
 
 @Component({
   selector: 'app-characters',
@@ -26,7 +27,6 @@ import { Character } from 'src/app/shared/models/character.model';
     MatInput,
     MatIcon,
     MatAutocompleteModule,
-    MatProgressSpinner,
     MatOption,
     DatePipe,
     FormsModule,
@@ -39,14 +39,12 @@ import { Character } from 'src/app/shared/models/character.model';
     CharactersStore
   ]
 })
-export class CharactersPage  {
+export class CharactersPage  implements OnInit {
 
   readonly store = inject(CharactersStore);
 
-  public color = signal<ThemePalette>('warn');
-  public mode = signal<ProgressSpinnerMode>('indeterminate');
-  public value = signal<number>(50);
-  public shouldShowLoadingIndicator = this.store.isLoading;
+
+  public isLoading = this.store.isLoading;
 
 
   // MatPaginator Inputs
@@ -58,14 +56,13 @@ export class CharactersPage  {
   pageEvent = signal<PageEvent | null>(null);
   nameStartsWith = signal('');
 
-
   public options = this.store.charactersNames;
   public characters = this.store.characters;
 
-  constructor() {
-    effect(() => {
-      this.nameStartsWith().length > 0 ? this.store.loadCharactersByFilter(this.nameStartsWith()) : this.loadByQuery()
-    }, {allowSignalWrites: true});
+  constructor() {}
+
+  ngOnInit(): void {
+    this.loadByQuery();
   }
 
   async loadByQuery() {
@@ -96,6 +93,7 @@ export class CharactersPage  {
   onSearchUpdated(nameStartsWith: string) {
     this.nameStartsWith.set(nameStartsWith);
     this.setQuery();
+    this.nameStartsWith().length > 0 ? this.store.loadCharactersByFilter(this.nameStartsWith()) : this.loadByQuery();
   }
 }
 

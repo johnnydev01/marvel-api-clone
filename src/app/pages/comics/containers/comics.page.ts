@@ -5,10 +5,11 @@ import { MatProgressSpinner, ProgressSpinnerMode} from '@angular/material/progre
 
 import { ComicsEntityService } from '../services/comics-entity.service';
 import { ComicsCarouselComponent } from '../components/comics-carousel/comics-carousel.component';
-import { EntityDataService } from '@ngrx/data';
+import { DefaultDataServiceFactory, EntityDataService, HttpUrlGenerator } from '@ngrx/data';
 import { ComicsDataService } from '../services/comics-data.service';
 import { AsyncPipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
 
 
 @Component({
@@ -19,10 +20,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
   imports: [
     MatProgressSpinner,
     ComicsCarouselComponent,
-    AsyncPipe
+    AsyncPipe,
+    LoadingComponent
   ],
   providers: [
     ComicsEntityService,
+
   ]
 })
 export class ComicsPage implements OnInit {
