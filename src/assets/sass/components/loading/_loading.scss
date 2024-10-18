@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+
+@mixin color($theme) {
+
+  .loading {
+    $background-color: mat.get-theme-color($theme, background, background);
+
+    // background-color: $background-color;
+    background-color: #FFF;
+  }
+}
