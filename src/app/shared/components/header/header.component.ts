@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, signal } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
 import { MatIcon } from '@angular/material/icon';
@@ -7,6 +7,10 @@ import { MatList, MatNavList } from '@angular/material/list';
 import { MatButton } from '@angular/material/button';
 import { PreloadAllModules, RouterLink, RouterOutlet, provideRouter, withDebugTracing, withPreloading } from '@angular/router';
 import { APP_ROUTES } from 'src/app/app.routes';
+import { LoadingComponent } from '../loading/loading.component';
+import { Observable } from 'rxjs';
+import { LoadingService } from '../../services/loading.service';
+import { AsyncPipe } from '@angular/common';
 
 
 interface FillerNav {
@@ -17,6 +21,7 @@ interface FillerNav {
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
     MatSidenav,
@@ -29,12 +34,23 @@ interface FillerNav {
     MatButton,
     MatSidenavContent,
     RouterLink,
-    RouterOutlet
+    RouterOutlet,
+    LoadingComponent,
+    AsyncPipe
   ],
 })
-export class HeaderComponent {
+export class HeaderComponent  {
 
   mobileQuery: MediaQueryList;
+
+  private loadingService =  inject(LoadingService);
+
+  private cd = inject(ChangeDetectorRef);
+
+  public loading = this.loadingService.loading;
+
+
+
 
   public fillerNav = signal<FillerNav[]>([
     {name: 'videos', link:"videos"},
@@ -50,16 +66,14 @@ export class HeaderComponent {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 768px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this._mobileQueryListener = () => this.cd.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
-
 
 }

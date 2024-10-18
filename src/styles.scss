@@ -1,10 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
 @use './assets/sass/index';
 @import "~bootstrap/dist/css/bootstrap.css";
 
 
 :root {
   $primary:#202020;
+
+  .mat-drawer-backdrop {
+    position: fixed;
+  }
+
+  .mat-drawer-container {
+    margin-top: 0 !important;
+  }
 
 }
 html, body { height: 100%; }

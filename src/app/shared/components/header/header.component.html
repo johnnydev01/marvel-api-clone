@@ -1,60 +1,60 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row class="border-bottom">
-      <div class="toolbar-container-upper">
-        <span class="username d-md-flex">Johnny</span>
-        @if(mobileQuery.matches) {
-          <button mat-icon-button (click)="snav.toggle()" class="menu-icon-container">
-            <i class="menu-icon"></i>
-          </button>
-        }
-        <a routerLink="/" class="logo-link">
+  <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar-row class="first-row first-row--border-bottom">
+      <div class="upper">
+        <span class="upper__profile d-md-flex">Johnny</span>
+
+        <button mat-icon-button (click)="snav.toggle()" class="upper__menu-toggle d-md-none">
+          <i></i>
+        </button>
+        <a routerLink="/" class="upper__logo">
           <svg width="130"  height="52" xmlns="http://www.w3.org/2000/svg"><rect fill="#EC1D24"  width="100%" height="100%"></rect><path fill="#FEFEFE"  d="M126.222 40.059v7.906H111.58V4h7.885v36.059h6.757zm-62.564-14.5c-.61.294-1.248.44-1.87.442v-14.14h.04c.622-.005 5.264.184 5.264 6.993 0 3.559-1.58 5.804-3.434 6.705zM40.55 34.24l2.183-18.799 2.265 18.799H40.55zm69.655-22.215V4.007H87.879l-3.675 26.779-3.63-26.78h-8.052l.901 7.15c-.928-1.832-4.224-7.15-11.48-7.15-.047-.002-8.06 0-8.06 0l-.031 39.032-5.868-39.031-10.545-.005-6.072 40.44.002-40.435H21.278L17.64 26.724 14.096 4.006H4v43.966h7.95V26.78l3.618 21.192h4.226l3.565-21.192v21.192h15.327l.928-6.762h6.17l.927 6.762 15.047.008h.01v-.008h.02V33.702l1.845-.27 3.817 14.55h7.784l-.002-.01h.022l-5.011-17.048c2.538-1.88 5.406-6.644 4.643-11.203v-.002C74.894 19.777 79.615 48 79.615 48l9.256-.027 6.327-39.85v39.85h15.007v-7.908h-7.124v-10.08h7.124v-8.03h-7.124v-9.931h7.124z"></path><path fill="#EC1D24" d="M0 0h30v52H0z"></path><path fill="#FEFEFE" d="M31.5 48V4H21.291l-3.64 22.735L14.102 4H4v44h8V26.792L15.577 48h4.229l3.568-21.208V48z"></path></svg>
         </a>
-        <div class="right-links">
-          <a class="search-promo  d-md-flex" style="color: #fff; text-decoration: none">
-            <img class="search-image" src="https://i.annihil.us/u/prod/marvel/images/mu/web/2021/icon-mu-shield.png" alt="Marvel Unlimited logo">
-            <div class="search-promo-wrap">
+        <div class="search d-md-flex">
+          <a class="search__promo  d-md-flex d-none">
+            <img class="search__image" src="https://i.annihil.us/u/prod/marvel/images/mu/web/2021/icon-mu-shield.png" alt="Marvel Unlimited logo">
+            <div class="search__text">
               <p>Marvel Unlimited</p>
               <span>Subscribe</span>
             </div>
           </a>
-          <a routerLink="/search" class="search-container">
+          <a routerLink="/search" class="search__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill-rule="evenodd"><circle cx="6.5" cy="6.5" r="5.5"></circle><path d="M14 14l3.536 3.536"></path></svg>
           </a>
+
         </div>
       </div>
     </mat-toolbar-row>
-    <mat-toolbar-row class="h-40 pr d-md-flex d-none">
-      <div class="toolbar-container-lower">
-        <ul class="desktop-nav-container">
-          @for(nav of fillerNav(); track nav; let i = $index) {
+    <mat-toolbar-row class="second_row  d-md-flex d-none">
+      <div class="lower">
+        <ul class="lower__desktop-nav">
+          @for(nav of fillerNav(); track i; let i = $index) {
             <li
-              class="desktop-link-wrapper"
+              class="lower__desktop-link-wrapper"
             >
               <a routerLink="/{{nav.link}}"
-                class="desktop-nav-link"
+                class="lower__desktop-nav-link"
               >
                 {{nav.name}}
               </a>
               <div
-                class="desktop-flyout-container"
+                class="lower__desktop-flyout"
                 id="desktop-flyout-{{i}}"
               >
-                <ul class="flyout-sencondary-links"></ul>
-                <div class="flyout-content"></div>
+                <ul class="lower__links"></ul>
+                <div class="lower__content"></div>
               </div>
             </li>
           }
         </ul>
-        <div id="btnGitHub">
+        <div class="btn-github">
           <a
             href="https://github.com/johnnydev01/marvel-api-clone"
             target="_blank"
             rel="Repositório marvel api clone"
             mat-icon-button
           >
-          <mat-icon class="icon-github"></mat-icon>
+          <mat-icon class="btn-github__icon"></mat-icon>
           </a>
         </div>
       </div>
@@ -62,16 +62,23 @@
   </mat-toolbar>
 
   <mat-sidenav-container [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <button mat-icon-button (click)="snav.toggle()" class="xmark-container">
+    <mat-sidenav
+      #snav
+      class="sidenav"
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+
+      >
+      <button mat-icon-button (click)="snav.toggle()" class="sidenav__xmark">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16"><path d="M-1-3L10.314 8.314M13 11l11.314 11.314M24.142-6L-4.142 22.284"></path></svg>
       </button>
-      <mat-nav-list>
+
+      <mat-nav-list class="list">
         @for(nav of fillerNav(); track nav) {
           <a mat-list-item routerLink=".">
             {{nav.name}}
-            <span class="arrow-right-container">
+            <span class="list__icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="16" viewBox="0 0 11 16"><path fill="none" d="M-.851-3L9.232 8-2.75 21.071"></path></svg>
             </span>
           </a>
@@ -81,6 +88,9 @@
 
     <mat-sidenav-content>
       <router-outlet></router-outlet>
+      @if(loading()) {
+        <app-loading></app-loading>
+      }
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
