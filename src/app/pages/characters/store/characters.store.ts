@@ -31,7 +31,7 @@ const initialState: CharactersState = {
 }
 
 export const CharactersStore = signalStore(
-  withState(initialState),
+  { protectedState: false }, withState(initialState),
   withMethods((store, charactersService = inject(CharactersService)) => ({
     setQuery(query: CharactersQuery): void {
       patchState(store, { query });
