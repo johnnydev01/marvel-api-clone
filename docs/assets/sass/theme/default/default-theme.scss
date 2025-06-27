@@ -14,11 +14,11 @@
 @include mat.legacy-core();
 
 
-$app-theme-primary: mat.define-palette($default-palette, 500);
-$app-theme-accent: mat.define-palette($default-palette, A400);
-$app-theme-warm: mat.define-palette(mat.$red-palette);
+$app-theme-primary: mat.m2-define-palette($default-palette, 500);
+$app-theme-accent: mat.m2-define-palette($default-palette, A400);
+$app-theme-warm: mat.m2-define-palette(mat.$m2-red-palette);
 
-$app-theme: mat.define-light-theme((
+$app-theme: mat.m2-define-light-theme((
   color: (
     primary: $app-theme-primary,
     accent: $app-theme-accent,

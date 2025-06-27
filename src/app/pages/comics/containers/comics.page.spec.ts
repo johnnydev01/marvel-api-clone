@@ -14,7 +14,7 @@ describe(ComicsPage.name, () => {
   let fixture: ComponentFixture<ComicsPage>;
   let store: MockStore<any>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync  () => {
     await TestBed.configureTestingModule({
       declarations: [ ComicsPage, ComicsCarouselComponent ],
       imports: [

@@ -7,7 +7,7 @@ describe(ComicsCarouselComponent.name, () => {
   let component: ComicsCarouselComponent;
   let fixture: ComponentFixture<ComicsCarouselComponent>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync  () => {
     await TestBed.configureTestingModule({
       declarations: [ ComicsCarouselComponent ],
       imports: [SwiperModule]

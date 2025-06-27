@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { waitForAsync } from '@angular/core/testing';
 
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
@@ -19,18 +20,18 @@ describe(CharactersPage.name, () => {
   let store: MockStore<any>;
 
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync () => {
     await TestBed.configureTestingModule({
       declarations: [ CharactersPage ],
       imports: [
-        MatPaginatorModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatIconModule,
-        MatAutocompleteModule,
-        FormsModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule
+        // MatPaginatorModule,
+        // MatFormFieldModule,
+        // MatInputModule,
+        // MatIconModule,
+        // MatAutocompleteModule,
+        // FormsModule,
+        // ReactiveFormsModule,
+        // BrowserAnimationsModule
       ],
       providers: [
       ]

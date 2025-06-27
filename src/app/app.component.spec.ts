@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 
 describe(AppComponent.name, () => {
-  beforeEach(async () => {
+  beforeEach(waitForAsync () => {
     await TestBed.configureTestingModule({
       declarations: [
         AppComponent,

@@ -6,7 +6,7 @@ describe('LoadingComponent', () => {
   let component: LoadingComponent;
   let fixture: ComponentFixture<LoadingComponent>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync  () => {
     await TestBed.configureTestingModule({
       imports: [LoadingComponent]
     })

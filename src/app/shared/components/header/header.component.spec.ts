@@ -13,7 +13,7 @@ describe(HeaderComponent.name, () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
-  beforeEach(async () => {
+  beforeEach(waitForAsync  () => {
     await TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
       imports: [
