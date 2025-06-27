@@ -35,9 +35,6 @@ import { ComicsPage } from '../../comics/containers/comics.page';
     AsyncPipe,
 
   ],
-  providers: [
-    CharactersStore
-  ]
 })
 export class CharactersPage  implements OnInit {
 

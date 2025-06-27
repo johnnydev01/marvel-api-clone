@@ -8,10 +8,9 @@ import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideHttpClient, withInterceptors } from "@angular/common/http";
 import { provideRouter, withComponentInputBinding } from "@angular/router";
 import { APP_ROUTES } from "./app.routes";
-import { metaReducers, reducers } from "./state/app-state.reducer";
-import { RouterState, provideRouterStore } from "@ngrx/router-store";
 import { environment } from "src/environments/environment";
 import { loadingInterceptor } from "./shared/interceptors/loading.interceptor";
+import { provideServerRendering  } from "@angular/platform-server";
 
 const baseUrl = environment.BASE_URL;
 
@@ -23,14 +22,16 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
 export const appConfig: ApplicationConfig = {
   providers: [
     { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideZoneChangeDetection({ eventCoalescing: true, ignoreChangesOutsideZone: true }),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true}),
     provideAnimations(),
     provideHttpClient(withInterceptors([loadingInterceptor])),
     provideRouter(APP_ROUTES, withComponentInputBinding()),
     provideEntityData(entityConfig, withEffects()),
     provideEffects(),
-    provideStore()
+    provideStore(),
+    // provideServerRendering(),
+    // provideRequestUrl('http://localhost:4000')
 
   ],
 };

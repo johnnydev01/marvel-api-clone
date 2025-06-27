@@ -1,4 +1,6 @@
 import { Routes, provideRouter } from '@angular/router';
+import { CharactersStore } from './pages/characters/store/characters.store';
+import { ComicsEntityService } from './pages/comics/services/comics-entity.service';
 
 
 type PathMatch = "full" | "prefix" | undefined;
@@ -12,13 +14,15 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'characters',
-    loadChildren: () => import('./pages/characters/characters.routes').then(m => m.CHARACTERS_ROUTES),
+    loadComponent: () => import('./pages/characters/containers/characters.page').then(c => c.CharactersPage),
     title: 'Characters Page',
+    providers: [CharactersStore]
   },
   {
     path: 'comics',
-    loadChildren: () => import('./pages/comics/comics.routes').then(m => m.COMICS_ROUTES),
+    loadComponent: () => import('./pages/comics/containers/comics.page').then(c => c.ComicsPage),
     title: 'Comics Page',
+    providers: [ComicsEntityService]
   }
 ];
 

@@ -23,10 +23,6 @@ import { LoadingComponent } from 'src/app/shared/components/loading/loading.comp
     AsyncPipe,
     LoadingComponent
   ],
-  providers: [
-    ComicsEntityService,
-
-  ]
 })
 export class ComicsPage implements OnInit {
   private entityDataService = inject(EntityDataService);

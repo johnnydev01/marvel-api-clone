@@ -60,5 +60,6 @@
     "setupFilesAfterEnv": [
       "<rootDir>/src/setup.jest.ts"
     ]
-  }
+  },
+  "type": "module"
 }
