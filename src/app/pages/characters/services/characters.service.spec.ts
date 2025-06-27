@@ -1,9 +1,10 @@
 import { environment } from './../../../../environments/environment';
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { CharactersDataService } from './characters.service';
 import { CharactersMock } from './characters.mock';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 const baseUrl = environment.BASE_URL;
 const params = environment.PARAMS;
@@ -20,11 +21,9 @@ describe(CharactersDataService.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-      ],
-      providers: [CharactersDataService]
-    });
+    imports: [],
+    providers: [CharactersDataService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(CharactersDataService);
     httpController = TestBed.inject(HttpTestingController);
   });

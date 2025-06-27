@@ -1,9 +1,10 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { environment } from 'src/environments/environment';
 
 import { ComicsService } from './comics-data.service';
 import { ComicsMock } from './commics.mock';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 
 const baseUrl = environment.BASE_URL;
@@ -20,11 +21,9 @@ describe(ComicsService.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      providers: [ComicsService]
-    });
+    imports: [],
+    providers: [ComicsService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(ComicsService);
     httpController = TestBed.inject(HttpTestingController);
   });
