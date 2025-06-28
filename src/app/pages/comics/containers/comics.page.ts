@@ -13,16 +13,15 @@ import { LoadingComponent } from 'src/app/shared/components/loading/loading.comp
 
 
 @Component({
-  selector: 'app-comics',
-  templateUrl: './comics.page.html',
-  styleUrls: ['./comics.page.scss'],
-  standalone: true,
-  imports: [
-    MatProgressSpinner,
-    ComicsCarouselComponent,
-    AsyncPipe,
-    LoadingComponent
-  ],
+    selector: 'app-comics',
+    templateUrl: './comics.page.html',
+    styleUrls: ['./comics.page.scss'],
+    imports: [
+        MatProgressSpinner,
+        ComicsCarouselComponent,
+        AsyncPipe,
+        LoadingComponent
+    ]
 })
 export class ComicsPage implements OnInit {
   private entityDataService = inject(EntityDataService);

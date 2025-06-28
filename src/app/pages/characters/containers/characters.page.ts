@@ -16,25 +16,23 @@ import { Character } from 'src/app/shared/models/character.model';
 import { ComicsPage } from '../../comics/containers/comics.page';
 
 @Component({
-  selector: 'app-characters',
-  templateUrl: './characters.page.html',
-  styleUrls: ['./characters.page.scss'],
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    MatPaginator,
-    MatFormField,
-    MatInput,
-    MatIcon,
-    MatAutocompleteModule,
-    MatOption,
-    DatePipe,
-    FormsModule,
-    ReactiveFormsModule,
-    JsonPipe,
-    AsyncPipe,
-
-  ],
+    selector: 'app-characters',
+    templateUrl: './characters.page.html',
+    styleUrls: ['./characters.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        MatPaginator,
+        MatFormField,
+        MatInput,
+        MatIcon,
+        MatAutocompleteModule,
+        MatOption,
+        DatePipe,
+        FormsModule,
+        ReactiveFormsModule,
+        JsonPipe,
+        AsyncPipe,
+    ]
 })
 export class CharactersPage  implements OnInit {
 

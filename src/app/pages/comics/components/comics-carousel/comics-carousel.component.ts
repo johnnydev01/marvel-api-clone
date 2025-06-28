@@ -26,14 +26,12 @@ SwiperCore.use([
 ]);
 
 @Component({
-  selector: 'app-comics-carousel',
-  templateUrl: './comics-carousel.component.html',
-  styleUrls: ['./comics-carousel.component.scss'],
-  standalone: true,
-  imports: [
-    SwiperModule
-  ]
-
+    selector: 'app-comics-carousel',
+    templateUrl: './comics-carousel.component.html',
+    styleUrls: ['./comics-carousel.component.scss'],
+    imports: [
+        SwiperModule
+    ]
 })
 export class ComicsCarouselComponent implements OnInit {
 

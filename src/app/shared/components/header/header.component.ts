@@ -18,25 +18,24 @@ interface FillerNav {
   link: string;
 }
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  standalone: true,
-  imports: [
-    MatSidenav,
-    MatNavList,
-    MatSidenavContainer,
-    MatIcon,
-    MatToolbar,
-    MatToolbarRow,
-    MatList,
-    MatButton,
-    MatSidenavContent,
-    RouterLink,
-    RouterOutlet,
-    LoadingComponent,
-    AsyncPipe
-  ],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    imports: [
+        MatSidenav,
+        MatNavList,
+        MatSidenavContainer,
+        MatIcon,
+        MatToolbar,
+        MatToolbarRow,
+        MatList,
+        MatButton,
+        MatSidenavContent,
+        RouterLink,
+        RouterOutlet,
+        LoadingComponent,
+        AsyncPipe
+    ]
 })
 export class HeaderComponent  {
 
