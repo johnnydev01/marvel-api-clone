@@ -2,7 +2,8 @@
 @use '@angular/material/core/theming/palette' as palette;
 
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 
 $default-palette: (
