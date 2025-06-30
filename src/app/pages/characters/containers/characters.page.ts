@@ -2,18 +2,17 @@ import { ChangeDetectionStrategy, Component, OnInit, computed, effect, inject, s
 
 
 
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { PageEvent } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatOption, ThemePalette } from '@angular/material/core';
-import { MatProgressSpinner, ProgressSpinnerMode } from '@angular/material/progress-spinner';
-import { MatFormField } from '@angular/material/form-field';
+import { MatOption } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { MatInput } from '@angular/material/input';
-import { MatIcon } from '@angular/material/icon';
-import {  MatAutocompleteModule } from '@angular/material/autocomplete';
-import { AsyncPipe, DatePipe, JsonPipe } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { DatePipe } from '@angular/common';
 import { CharactersQuery, CharactersStore } from '../store/characters.store';
-import { Character } from 'src/app/shared/models/character.model';
-import { ComicsPage } from '../../comics/containers/comics.page';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @Component({
     selector: 'app-characters',
@@ -21,17 +20,15 @@ import { ComicsPage } from '../../comics/containers/comics.page';
     styleUrls: ['./characters.page.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
-        MatPaginator,
-        MatFormField,
+        MatPaginatorModule,
+        MatFormFieldModule,
         MatInput,
-        MatIcon,
+        MatIconModule,
         MatAutocompleteModule,
         MatOption,
         DatePipe,
         FormsModule,
         ReactiveFormsModule,
-        JsonPipe,
-        AsyncPipe,
     ]
 })
 export class CharactersPage  implements OnInit {
@@ -41,7 +38,7 @@ export class CharactersPage  implements OnInit {
 
   public isLoading = this.store.isLoading;
 
-
+JsonPipe
   // MatPaginator Inputs
   public length = signal<number>(2700);
   public pageSize = signal<number>(36);

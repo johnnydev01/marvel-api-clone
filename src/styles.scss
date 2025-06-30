@@ -1,12 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
 
-@use './assets/sass/index';
+@use './assets/sass/index' as theme;
 @import "bootstrap/dist/css/bootstrap.css";
 
 
 :root {
   $primary:#202020;
+
+  @include mat.autocomplete-overrides((
+    background-color: #FFF,
+  ));
+
 
   .mat-drawer-backdrop {
     position: fixed;

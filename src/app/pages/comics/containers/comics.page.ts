@@ -17,10 +17,7 @@ import { LoadingComponent } from 'src/app/shared/components/loading/loading.comp
     templateUrl: './comics.page.html',
     styleUrls: ['./comics.page.scss'],
     imports: [
-        MatProgressSpinner,
         ComicsCarouselComponent,
-        AsyncPipe,
-        LoadingComponent
     ]
 })
 export class ComicsPage implements OnInit {

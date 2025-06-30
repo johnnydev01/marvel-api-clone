@@ -34,7 +34,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "./node_modules/swiper/swiper-bundle.css",
               "src/styles.scss"
             ],
@@ -45,12 +44,8 @@
                 "."
               ]
             },
-            "browser": "src/main.ts",
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "browser": "src/main.ts"
+
           },
           "configurations": {
             "production": {

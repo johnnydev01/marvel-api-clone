@@ -28,13 +28,10 @@ interface FillerNav {
         MatIcon,
         MatToolbar,
         MatToolbarRow,
-        MatList,
-        MatButton,
         MatSidenavContent,
         RouterLink,
         RouterOutlet,
         LoadingComponent,
-        AsyncPipe
     ]
 })
 export class HeaderComponent  {

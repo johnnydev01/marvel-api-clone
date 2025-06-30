@@ -1,10 +1,8 @@
 
-@import 'node_modules/bootstrap/scss/bootstrap-utilities';
+@use 'node_modules/bootstrap/scss/bootstrap-utilities' as bs;
 
 $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,sans-serif;
 
-.toolbar {
-}
 
 .first-row {
   padding: 0 30px !important;
@@ -255,7 +253,7 @@ $font-condedensed: 400 12px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
 
 
 
-@include media-breakpoint-up(md){
+@include bs.media-breakpoint-up(md){
   .upper {
     max-width: 1200px;
     align-items: initial;
