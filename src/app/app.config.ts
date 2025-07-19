@@ -1,3 +1,4 @@
+import { provideServerRendering } from '@angular/ssr';
 import { ApplicationConfig, isDevMode, provideZoneChangeDetection } from "@angular/core";
 import { DefaultDataServiceConfig, provideEntityData, withEffects } from "@ngrx/data";
 import { provideStore } from "@ngrx/store";
@@ -10,7 +11,6 @@ import { provideRouter, withComponentInputBinding } from "@angular/router";
 import { APP_ROUTES } from "./app.routes";
 import { environment } from "src/environments/environment";
 import { loadingInterceptor } from "./shared/interceptors/loading.interceptor";
-import { provideServerRendering  } from "@angular/platform-server";
 
 const baseUrl = environment.BASE_URL;
 
