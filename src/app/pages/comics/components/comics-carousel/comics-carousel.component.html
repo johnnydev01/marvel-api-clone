@@ -1,9 +1,18 @@
-<swiper
-  [config]="config"
+<swiper-container
+  class="swiper-container-bg"
+  autoplay="true"
+  [pagination]="{
+    clickable: true,
+  }"
+  [breakpoints]="{
+      '961': {
+        navigation: true,
+      },
+  }"
 
 >
-  <ng-template swiperSlide>
-    <img src="https://i.annihil.us/u/prod/marvel/i/mg/6/a0/62fec73360d75.jpg" alt="'Strange' #5">
+  <swiper-slide class="swiper-slide-container">
+    <img class="swiper-slide-container-img" src="https://i.annihil.us/u/prod/marvel/i/mg/6/a0/62fec73360d75.jpg" alt="'Strange' #5">
     <div class="slider-frame">
       <div class="sld-decor-left">
       </div>
@@ -24,9 +33,9 @@
         </div>
       </div>
     </div>
-  </ng-template>
-  <ng-template swiperSlide>
-    <img src="https://i.annihil.us/u/prod/marvel/i/mg/6/10/62fec6303550d.jpg" alt="Spotlight">
+  </swiper-slide>
+  <swiper-slide class="swiper-slide-container">
+    <img class="swiper-slide-container-img" src="https://i.annihil.us/u/prod/marvel/i/mg/6/10/62fec6303550d.jpg" alt="Spotlight">
     <div class="slider-frame">
       <div class="sld-decor-left">
       </div>
@@ -47,9 +56,9 @@
         </div>
       </div>
     </div>
-  </ng-template>
-  <ng-template swiperSlide>
-    <img src="https://i.annihil.us/u/prod/marvel/i/mg/a/20/62fcd92a6796d.jpg" alt="Coming Soon">
+  </swiper-slide>
+  <swiper-slide class="swiper-slide-container">
+    <img class="swiper-slide-container-img" src="https://i.annihil.us/u/prod/marvel/i/mg/a/20/62fcd92a6796d.jpg" alt="Coming Soon">
     <div class="slider-frame">
       <div class="sld-decor-left">
       </div>
@@ -70,9 +79,9 @@
         </div>
       </div>
     </div>
-  </ng-template>
-  <ng-template swiperSlide>
-    <img src="https://i.annihil.us/u/prod/marvel/i/mg/4/00/62fcd79742913.jpg" alt="Marvel's Voices">
+  </swiper-slide>
+  <swiper-slide class="swiper-slide-container">
+    <img class="swiper-slide-container-img" src="https://i.annihil.us/u/prod/marvel/i/mg/4/00/62fcd79742913.jpg" alt="Marvel's Voices">
     <div class="slider-frame">
       <div class="sld-decor-left">
       </div>
@@ -94,9 +103,9 @@
 
       </div>
     </div>
-  </ng-template>
-  <ng-template swiperSlide>
-    <img src="https://i.annihil.us/u/prod/marvel/i/mg/9/70/62f6d2da571f4.jpg" alt="Starter Stories">
+  </swiper-slide>
+  <swiper-slide class="swiper-slide-container">
+    <img class="swiper-slide-container-img" src="https://i.annihil.us/u/prod/marvel/i/mg/9/70/62f6d2da571f4.jpg" alt="Starter Stories">
     <div class="slider-frame">
       <div class="sld-decor-left">
       </div>
@@ -117,5 +126,5 @@
         </div>
       </div>
     </div>
-  </ng-template>
-</swiper>
+  </swiper-slide>
+</swiper-container>

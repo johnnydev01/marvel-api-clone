@@ -17,7 +17,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "types": [
-      "node"
+      "node",
+      "swiper"
     ],
     "importHelpers": true,
     "target": "ES2022",

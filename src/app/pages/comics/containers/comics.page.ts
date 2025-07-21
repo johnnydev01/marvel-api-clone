@@ -1,15 +1,10 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
-import { MatProgressSpinner, ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 
-import { ComicsEntityService } from '../services/comics-entity.service';
 import { ComicsCarouselComponent } from '../components/comics-carousel/comics-carousel.component';
-import { DefaultDataServiceFactory, EntityDataService, HttpUrlGenerator } from '@ngrx/data';
-import { ComicsDataService } from '../services/comics-data.service';
-import { AsyncPipe } from '@angular/common';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
+import { ComicsQuery, ComicsStore } from '../store/comics.store';
 
 
 @Component({
@@ -21,13 +16,12 @@ import { LoadingComponent } from 'src/app/shared/components/loading/loading.comp
     ]
 })
 export class ComicsPage implements OnInit {
-  private entityDataService = inject(EntityDataService);
-  private comicsDataService =  inject(ComicsDataService)
-  private comicsService = inject(ComicsEntityService);
 
-  public comics = toSignal(this.comicsService.entities$);
+  readonly store = inject(ComicsStore);
 
-  public shouldShowLoadingIndicator = toSignal(this.comicsService.loading$);
+  public comics = this.store.comics
+
+  public isLoading = this.store.isLoading;
 
   color: ThemePalette = 'warn';
   mode: ProgressSpinnerMode = 'indeterminate';
@@ -35,17 +29,16 @@ export class ComicsPage implements OnInit {
 
   private page = signal(0);
 
-  constructor() {
-    this.entityDataService.registerService('Comic', this.comicsDataService);
-
-   }
+  constructor() {}
 
   ngOnInit(): void {
-    this.comicsService.getWithQuery({'offset':  '0'});
+    this.store.getWithQuery()
   }
 
   loadMore(): void {
    this.page.update((page) => page + 1);
-   this.comicsService.getWithQuery({'offset': this.page().toString()})
+   this.store.setQuery({offset: this.page().toString(), limit: '12'} )
+   this.store.loadMore()
+   console.log('Comics', this.store.comics())
   }
 }

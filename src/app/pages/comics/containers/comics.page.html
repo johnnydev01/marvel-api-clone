@@ -1,5 +1,5 @@
 <app-comics-carousel></app-comics-carousel>
-@if(!shouldShowLoadingIndicator()) {
+@if(comics().length > 0 && !isLoading()) {
   <section>
     <div class="grid-container mt-30">
       <div class="JCMultiRow">
@@ -26,7 +26,8 @@
     </div>
   </section>
 }
-@if(!shouldShowLoadingIndicator()) {
+
+@if(comics().length > 0 && !isLoading()) {
   <div class="JCFilter-showmore">
     <div class="btn-Merger">
       <a id="btnShowMore"  (click)="loadMore()" class="cta-btn cta-btn--solid cta-btn--red active" aria-current="true" data-browse-fetchmore="browse">

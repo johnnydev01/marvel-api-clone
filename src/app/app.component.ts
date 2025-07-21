@@ -1,6 +1,5 @@
+
 import { Component } from '@angular/core';
-import { EntityDataModule } from '@ngrx/data';
-import { entityConfig } from './entity-metadata';
 import { HeaderComponent } from './shared/components/header/header.component';
 
 
@@ -9,7 +8,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     imports: [
-        HeaderComponent
+        HeaderComponent,
     ]
 })
 export class AppComponent {

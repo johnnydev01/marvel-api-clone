@@ -4,21 +4,32 @@
 @use './assets/sass/index' as theme;
 @import "bootstrap/dist/css/bootstrap.css";
 
-
 :root {
   $primary:#202020;
+  //bullets
+  --swiper-pagination-bullet-width: 18px;
+  --swiper-pagination-bullet-height: 5px;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-border-radius: 100%
+  --swiper-pagination-bottom: 10px !important;
+
+
+  //bullets active
+  --swiper-theme-color: #E62429;
+  --swiper-pagination-color: #E62429 !important;
+  --swiper-pagination-bullet-inactive-color: #FFF;
+  --swiper-pagination-bullet-inactive-opacity: 0.4 !important;
+
+  //swiper-slide
+  --swiper-slide-width: 100%
+  --swiper-slide-height: 570px;
 
   @include mat.autocomplete-overrides((
     background-color: #FFF,
   ));
 
-
   .mat-drawer-backdrop {
     position: fixed;
-  }
-
-  .mat-drawer-container {
-    margin-top: 0 !important;
   }
 
 }
@@ -32,3 +43,5 @@ a {
 a:hover {
   color: #FFF;
 }
+
+

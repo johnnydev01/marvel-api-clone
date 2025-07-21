@@ -38,7 +38,6 @@ export class CharactersPage  implements OnInit {
 
   public isLoading = this.store.isLoading;
 
-JsonPipe
   // MatPaginator Inputs
   public length = signal<number>(2700);
   public pageSize = signal<number>(36);
