@@ -24,7 +24,7 @@
 <div class="full-content">
   <form class="row">
     <mat-form-field class="col-md-6 col-sm-6">
-      <mat-icon matPrefix class="mr-8" fontIcon="search">"</mat-icon>
+      <mat-icon matPrefix class="mr-8" fontIcon="search"></mat-icon>
       <input
         class="w-100"
         type="search"
@@ -72,10 +72,13 @@
     </div>
   }
 
-  <mat-paginator [length]="length()"
-                 [pageSize]="pageSize()"
-                 [pageSizeOptions]="pageSizeOptions()"
-                 (page)="getCharactersByPage($event)"
-                 aria-label="Select page">
-  </mat-paginator>
+    <mat-paginator
+      [length]="length()"
+      [pageSize]="pageSize()"
+      [pageSizeOptions]="pageSizeOptions()"
+      (page)="getCharactersByPage($event)"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+
 </div>

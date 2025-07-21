@@ -5,6 +5,10 @@ $font-condedensed: 500 26px/1 RobotoCondensed Bold,Trebuchet MS,Helvetica,Arial,
 .section-color-dark {
   background-color: #151515;
 }
+::ng-deep .mat-mdc-select-panel{
+  z-index: 10000;
+  background-color: #FFF !important;
+}
 
 .masthead {
   position: relative;

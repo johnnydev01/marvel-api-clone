@@ -236,7 +236,7 @@
   }
 
 @media screen and ( min-width: 961px ) {
-  ::ng-deep .swiper-wrapper {
+  .swiper-slide-container:first-child{
     margin-left: -100px;
   }
   ::ng-deep .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {

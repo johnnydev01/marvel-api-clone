@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, computed, effect, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation, computed, effect, inject, signal } from '@angular/core';
 
 
 
@@ -18,7 +18,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     selector: 'app-characters',
     templateUrl: './characters.page.html',
     styleUrls: ['./characters.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         MatPaginatorModule,
         MatFormFieldModule,
